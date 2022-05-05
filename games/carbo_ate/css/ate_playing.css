@@ -1,0 +1,14 @@
+.top-title {
+    text-align: center;
+}
+/* .main-wrapper{
+    background-color: aliceblue;
+    width: 100%;
+    height: 340px; 
+    display: flex;
+} */
+.img-wrapper{
+    background-color: aliceblue;
+    width: 100%;
+    height: 300px; 
+}
