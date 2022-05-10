@@ -1,9 +1,21 @@
 <?php
+session_start();
+require('../../../common.php');
+if(isset($_SESSION['id']) && isset($_SESSION['name'])){
+    $id = $_SESSION['id'];
+    $name = $_SESSION['name'];
 
+}else{
+    var_dump("failed");
+    // header('Location: ../../login_v.php');
+    // exit();
+}
 // if($_SERVER['REQUEST_METHOD'] === 'POST'){
 //     header('Location: ate-playing.php');
 //     exit();
 // }
+
+
 
 ?>
 
@@ -18,39 +30,42 @@
     <link rel="stylesheet" href="../css/carbo-ate.css">
 </head>
 <body>
-    <header></header>
+    <header>
+    <?php echo htmlspecialchars($id) ?> 
+    <?php echo htmlspecialchars($name)?>
+    </header>
     <main>
-    <div class="top-title">
-            <h1>カーボ当てゲーム</h1>
-            <p>食べ物のカーボはいくつかを答えよう！
-            ここでは糖質量 10g = 1カーボとします。</p>
-    </div>
-    <div class="main-wrapper">
-        <div class="game-example"></div>
-        <div class="ranking">
-            <h2>ランキング</h2>
-            <div class="prize gold">
-                <img>
-                <p>name</p>
-                <p>score</p>
-            </div>
-            <div class="prize silver">
-                <img>
-                <p>name</p>
-                <p>score</p>
-            </div>
-            <div class="prize blond">
-                <img>
-                <p>name</p>
-                <p>score</p>
+        <div class="top-title">
+                <h1>カーボ当てゲーム</h1>
+                <p>食べ物のカーボはいくつかを答えよう！
+                ここでは糖質量 10g = 1カーボとします。</p>
+        </div>
+        <div class="main-wrapper">
+            <div class="game-example"></div>
+            <div class="ranking">
+                <h2>ランキング</h2>
+                <div class="prize gold">
+                    <img>
+                    <p>name</p>
+                    <p>score</p>
+                </div>
+                <div class="prize silver">
+                    <img>
+                    <p>name</p>
+                    <p>score</p>
+                </div>
+                <div class="prize blond">
+                    <img>
+                    <p>name</p>
+                    <p>score</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="btn-wrapper">
-        <form action= "ate_playing.php" method = "POST">
-            <input type = "submit" class = "start-btn"  value = "スタート">
-        </form>
-    </div>
+        <div class="btn-wrapper">
+            <form action= "ate_playing.php" method = "POST">
+                <input type = "submit" class = "start-btn"  value = "スタート">
+            </form>
+        </div>
     
     </main>
     <footer><footer>

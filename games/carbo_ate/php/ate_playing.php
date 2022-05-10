@@ -1,3 +1,9 @@
+<?php
+session_start();
+require('../../../common.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +15,11 @@
     <link rel="stylesheet" href="../css/ate_playing.css">
 </head>
 <body>
-    <header></header>
+    <header>
+    </header>
     <main>
     <div class="top-title">
+        
         <h1>第1問</h1>
     </div>
     <div class="img-wrapper"></div>
