@@ -1,6 +1,28 @@
 <?php
 session_start();
 require('../../../common.php');
+if(isset($_SESSION['id']) && isset($_SESSION['name'])){
+    $id = $_SESSION['id'];
+    $name = $_SESSION['name'];
+
+}else{
+    var_dump("failed");
+    // header('Location: ../../login_v.php');
+    // exit();
+}
+
+$db = dbconnect();
+$stmt = $db ->prepare('select name from foods order by Rand() limit 10');
+if(!$stmt){
+    die($db -> error);
+}
+$success = $stmt -> execute();
+if(!$success){
+    die($db -> error);
+}
+$stmt -> bind_result($name);
+
+
 
 ?>
 
@@ -21,8 +43,12 @@ require('../../../common.php');
     <div class="top-title">
         
         <h1>第1問</h1>
+        <?php while($stmt -> fetch()):?>
+        <?= $name ?>
+        <?php endwhile; ?>
     </div>
     <div class="img-wrapper"></div>
+    
     <div class="form">
         <p>カーボを入力してね<p>
         <form action = "" method = "POST">

@@ -2,6 +2,15 @@
 session_start();
 require('../../../common.php');
 
+if(isset($_SESSION['id']) && isset($_SESSION['name'])){
+    $id = $_SESSION['id'];
+    $name = $_SESSION['name'];
+
+}else{
+    var_dump("failed");
+    // header('Location: ../../login_v.php');
+    // exit();
+}
 
 ?>
 
@@ -15,7 +24,10 @@ require('../../../common.php');
     <link rel="stylesheet" href="../../../common.css">
     <link rel="stylesheet" href="../css/total-carbo.css">
 <body>
-    <header></header>
+    <header>
+    <?php echo htmlspecialchars($id) ?> 
+    <?php echo htmlspecialchars($name)?>
+    </header>
     <main>
         <div class="top-title">
                     <h1>トータルカーボ当てゲーム</h1>

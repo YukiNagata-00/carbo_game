@@ -7,13 +7,15 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
 
 }else{
     var_dump("failed");
-    // header('Location: ../../login_v.php');
-    // exit();
+    header('Location: ../../login_v.php');
+    exit();
 }
-// if($_SERVER['REQUEST_METHOD'] === 'POST'){
-//     header('Location: ate-playing.php');
-//     exit();
-// }
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $_SESSION['id'] = $id;
+    $_SESSION['name'] = $name;
+    header('Location: ate_playing.php');
+    exit();
+}
 
 
 
@@ -62,7 +64,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
             </div>
         </div>
         <div class="btn-wrapper">
-            <form action= "ate_playing.php" method = "POST">
+            <form action= "" method = "POST">
                 <input type = "submit" class = "start-btn"  value = "スタート">
             </form>
         </div>

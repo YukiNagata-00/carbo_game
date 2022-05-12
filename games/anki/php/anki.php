@@ -1,3 +1,18 @@
+<?php
+session_start();
+require('../../../common.php');
+if(isset($_SESSION['id']) && isset($_SESSION['name'])){
+    $id = $_SESSION['id'];
+    $name = $_SESSION['name'];
+}else{
+    var_dump("failed");
+    header('Location: ../../login_v.php');
+    exit();
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +24,13 @@
     
 </head>
 <body>
-    <header></header>
+    <header>
+    <?php echo htmlspecialchars($id) ?> 
+    <?php echo htmlspecialchars($name)?>
+    </header>
     <main>
         <div class="top-title">
-                        <h1>トータルカーボ当てゲーム</h1>
+                        <h1>暗記</h1>
                         <p>指示されたカーボを目指して食べ物を集めよう！
                         ここでは糖質量 10g = 1カーボとし、運動はゲーム上の設定としてー5カーボとします。</p>
             </div>
