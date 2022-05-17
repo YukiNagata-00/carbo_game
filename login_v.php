@@ -1,6 +1,4 @@
 <?php
-//test
-
 session_start();
 require('common.php');
 
@@ -44,7 +42,7 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
             $_SESSION['id'] = $id;
             $_SESSION['name'] = $name;
             // var_dump('success');
-            header('Location: ./top/index.php');
+            header('Location: ./top/php/index.php');
             exit();
         }else {
             $error['login'] = 'failed';
@@ -70,34 +68,48 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./common.css">
     <link rel="stylesheet" href="./login_v.css">
 </head>
 <body>
-    <header></header>
+    <header>
+        
+    </header>
     <main>
         <div class="main-wrapper">
             <div class="login-wrapper">
+                
                 <h2>ログイン</h2>
                 <!-- <form action="../../controller/controller_php/login_c.php" method="POST"> -->
                 <form action="" method="POST">
                     <div class = "email-area">
                         <label for = "email">メールアドレス</label>
                         <input type = "text" name = "email" value = "<?php echo  htmlspecialchars($form['email']); ?>">
+                        <div class= "error-area">
+                        <p> エラー文</p>
                         <?php if(isset($error['email']) && $error['email'] === 'blank'): ?>
                             <p class = "error">メールアドレスを入力してください</p>
-                        <?php endif; ?>
+                        <?php endif; ?> 
+                                
+                        
+                        </div>
+                        
                     </div>
-                    <div>パスワード
+                    <div class = "password-area">
+                    <label for = "password">メールアドレス</label>
                         <input type = "password" name = "password" value = "<?php echo htmlspecialchars($form['password']); ?>">
-                        <?php if(isset($error['password']) && $error['password'] === 'blank'): ?>
-                            <p class = "error">パスワードを入力してください</p>
-                        <?php endif; ?>
+                        <div class= "error-area">
+                                <p> エラー文</p>
+                            <?php if(isset($error['password']) && $error['password'] === 'blank'): ?>
+                                <p class = "error">パスワードを入力してください</p>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <?php if(isset($error['loggin']) && $error['login'] === 'failed'):?> 
+                    <?php if(isset($error['login']) && $error['login'] === 'failed'):?> 
                         <p>ログインに失敗しました。もう一度お試しください</p>
                     
                     <?php endif; ?>
-                    <input type = "submit" value="ログイン">
+                    <input type = "submit" value="ログイン" class = "btn">
                 </form>
                 <a href = "./signup/php/signup_v.php">新規登録はこちら</a>
             </div>

@@ -1,18 +1,42 @@
 
-.main-wrapper {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    /* background-color: aqua; */
+main{
+    position:relative;
 }
 .login-wrapper {
-    background-color: antiquewhite;
-    height: 100%;
-    width: 50%;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    background-color: white;
+    border-radius:10px;
+    height: 60%;
+    width: 40%;
+    text-align:center;
+    opacity:1;
 
+}
+.email-area {
+    margin-bottom: 20px;
+    height: 40%;
+    background-color: pink;
+}
+.password-area{
+    margin-bottom: 20px;
+    height: 40%;
+    background-color: pink;
+}
+.error-area {
+    background-color: orange;
+    width: 100%;
+    height: 10%;
 }
 .error {
     color: red;
 }
 
-
+.btn{
+    width:20%;
+    cursor:pointer;
+    background-color: #FFCC66;
+    border-radius:10px;
+    padding: 4px;
+}
