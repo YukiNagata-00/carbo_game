@@ -27,6 +27,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
     <header>
     <?php echo htmlspecialchars($id) ?> 
     <?php echo htmlspecialchars($name)?>
+    <form action = "../../../top/php/index.php">
+        <input type = "submit" value = "戻る">
+    </form>
     </header>
     <main>
         <div class="top-title">

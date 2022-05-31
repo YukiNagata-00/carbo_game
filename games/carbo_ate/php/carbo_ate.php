@@ -35,6 +35,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <header>
     <?php echo htmlspecialchars($id) ?> 
     <?php echo htmlspecialchars($name)?>
+    <form action = "../../../top/php/index.php">
+        <input type = "submit" value = "戻る">
+    </form>
     </header>
     <main>
         <div class="top-title">
@@ -45,6 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <div class="main-wrapper">
             <div class="game-example"></div>
             <div class="ranking">
+
                 <h2>ランキング</h2>
                 <div class="prize gold">
                     <img>

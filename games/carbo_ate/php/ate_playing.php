@@ -11,8 +11,18 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
     // exit();
 }
 
+
+
+// if($records){
+//     // while($record = $records-> fetch_assoc()){
+//         echo $records;
+//     // }
+// }
+
+
 $db = dbconnect();
-$stmt = $db ->prepare('select name from foods order by Rand() limit 10');
+$stmt = $db ->prepare('select name, carbo, image from foods order by Rand() limit 10');
+
 if(!$stmt){
     die($db -> error);
 }
@@ -20,9 +30,11 @@ $success = $stmt -> execute();
 if(!$success){
     die($db -> error);
 }
-$stmt -> bind_result($name);
+// $stmt -> bind_result($name, $carbo, $image);
 
-
+// $stmt ->fetch();
+// var_dump($name, $carbo, $image);
+// var_dump($records);
 
 ?>
 
@@ -43,9 +55,9 @@ $stmt -> bind_result($name);
     <div class="top-title">
         
         <h1>第1問</h1>
-        <?php while($stmt -> fetch()):?>
+        <!-- <?php while($stmt -> fetch()):?>
         <?= $name ?>
-        <?php endwhile; ?>
+        <?php endwhile; ?> -->
     </div>
     <div class="img-wrapper"></div>
     
