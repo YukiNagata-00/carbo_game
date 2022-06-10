@@ -59,7 +59,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
                 </div>
             </div>
             <div class="btn-wrapper">
-                <form action= "ate_playing.php" method = "POST">
+                <form action= "cardslist.php" method = "POST">
                     <input type = "submit" class = "start-btn"  value = "スタート">
                 </form>
             </div>
