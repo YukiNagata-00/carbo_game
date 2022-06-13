@@ -38,24 +38,27 @@ $stmt -> bind_result($id, $name, $carbo, $image);
 </head>
 <body>
     <header>
+        <form action = "cardslist.php">
+            <input type = "submit" value = "戻る">
+        </form>
         <?php echo $id ?>
     </header>
     <main>
         <div class="main-wrapper">
-        <div class="aCard">
+        <div class="aCard"  id = "card">
                 <?php while($stmt -> fetch()):?>
                     
                     
-                        <p class = "foodName"><?php echo $name;?></p>
-                        <!-- <?php echo $carbo;?> -->
-                        
-                        <img src = "<?php echo $image ?>" class = "foodImg"> 
+                        <p id = "foodName" ><?php echo $name;?></p>
+                        <p id = "carbo" class = "carbo off"><?php echo $carbo;?> </p>
+                        <img src = "<?php echo $image ?>" class = "foodImg" id = "img"> 
                     
-            </div>
+        </div>
             <?php endwhile; ?>
         </div>
 
     </main>
     <footer></footer>
+    <script type="text/javascript" src = "../js/oneCard.js"></script>
 </body>
 </html>
