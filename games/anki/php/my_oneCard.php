@@ -4,19 +4,19 @@ require('../../../common.php');
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if(!$id){
-    header('Location: cardslist.php');
+    header('Location: my_cardslist.php');
     exit();
 }
 //DB接続
 $db = dbconnect();
 
-$counts = $db->query('select count(*) as cnt from foods');
+$counts = $db->query('select count(*) as cnt from cards');
 $count = $counts-> fetch_assoc();
 $max_id = $count['cnt'];
 // var_dump($max_id);
 
 //データ取得
-$stmt = $db->prepare('select id, name, carbo, image from foods  where id =?  limit 1');
+$stmt = $db->prepare('select id, name, carbo, image from cards  where id =?  limit 1');
 
 if(!$stmt){
     die($db->error);
@@ -46,7 +46,7 @@ $stmt -> bind_result($id, $name, $carbo, $image);
 </head>
 <body>
     <header>
-        <form action = "cardslist.php">
+        <form action = "my_cardslist.php">
             <input type = "submit" value = "戻る">
         </form>
         <?php echo $id ?>
@@ -58,7 +58,7 @@ $stmt -> bind_result($id, $name, $carbo, $image);
                 <?php while($stmt -> fetch()):?>
                         <p id = "foodName" ><?php echo $name;?></p>
                         <p id = "carbo" class = "carbo off"><?php echo $carbo;?> </p>
-                        <img src = "<?php echo $image ?>" class = "foodImg" id = "img"> 
+                        <img src = "../../game_images/<?php echo $image ?>" class = "foodImg" id = "img"> 
                     
             </div>
             <?php endwhile; ?>

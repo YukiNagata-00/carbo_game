@@ -13,15 +13,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
 
 
 
-// if($records){
-//     // while($record = $records-> fetch_assoc()){
-//         echo $records;
-//     // }
-// }
-
 
 $db = dbconnect();
-$stmt = $db ->prepare('select name, carbo, image from foods order by Rand() limit 10');
+$stmt = $db ->prepare('select * from foods ');
 
 if(!$stmt){
     die($db -> error);
@@ -30,11 +24,15 @@ $success = $stmt -> execute();
 if(!$success){
     die($db -> error);
 }
+
 // $stmt -> bind_result($name, $carbo, $image);
 
-// $stmt ->fetch();
-// var_dump($name, $carbo, $image);
-// var_dump($records);
+$data = $stmt ->fetch();
+print_r($data);
+
+
+
+
 
 ?>
 

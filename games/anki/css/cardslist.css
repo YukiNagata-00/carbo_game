@@ -18,7 +18,7 @@
     color: black;
     text-decoration: none;
     width: 40%;
-    height: calc(100% / 6);
+    height: calc(100% / 6) ;
     background-color: white;
     margin-bottom: 10px;
     margin: 0 auto;
@@ -30,4 +30,7 @@
 .card p{
     padding: 17px 17px;
     text-align: center;
+}
+.pager_area{
+    display: flex;
 }

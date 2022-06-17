@@ -1,10 +1,11 @@
 <?php
 session_start();
 require('../../../common.php');
+
+
 if(isset($_SESSION['id']) && isset($_SESSION['name'])){
     $id = $_SESSION['id'];
     $name = $_SESSION['name'];
-
 }else{
     var_dump("failed");
     header('Location: ../../login_v.php');
