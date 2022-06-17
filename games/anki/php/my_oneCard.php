@@ -31,6 +31,20 @@ if(!$success){
 $stmt -> bind_result($id, $name, $carbo, $image);
 
 
+
+//editページ遷移
+if(isset($_POST['edit'])){
+    $_SESSION['id'] = $id;
+    $_SESSION['name'] = $name;
+    $_SESSION['carbo'] = $carbo;
+    $_SESSION['image'] = $image;
+
+    header('Location: edit.php');
+    exit();
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +68,11 @@ $stmt -> bind_result($id, $name, $carbo, $image);
     </header>
     <main>
         <div class="main-wrapper">
+            <div class="btn">
+                <form method="POST">
+                    <input type = "submit" value = "編集" name = "edit">
+                </form>
+            </div>
             <div class="aCard"  id = "card">
                 <?php while($stmt -> fetch()):?>
                         <p id = "foodName" ><?php echo $name;?></p>
