@@ -1,0 +1,48 @@
+.top-title {
+    text-align: center;
+    margin-top: -24px;
+}
+.main-wrapper{
+    background-color: aliceblue;
+    width: 100%;
+    height: 340px; 
+    display: flex;
+}
+.game-example{
+    width: 50%;
+    height: 340px;
+
+}
+.ranking{
+    width: 50%;
+    height: 340px;
+    background-color: bisque;
+}
+.ranking h2{
+    text-align: center;
+}
+.prize{
+    display: flex;
+}
+.btn-wrapper{
+    width: 100%;
+    height: 56px;
+    position: relative;
+    /* background-color: aquamarine; */
+}
+/* .start-btn {
+    position:absolute;
+    left:43%;
+    width: 200px;
+    height: 100%;
+} */
+.start-btn{
+    position:absolute;
+    left:43%;
+    width: 200px;
+    height: 100%;
+    cursor:pointer;
+    background-color: #FFCC66;
+    border-radius:10px;
+    padding: 4px;
+}
