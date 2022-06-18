@@ -18,16 +18,19 @@ $error =[];
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $form['name'] = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    if(empty($form['name'])) {
+    //ユーザーネーム取得
+    $form['name'] = htmlspecialchars($_POST['name'], ENT_QUOTES);
+    if($form['name'] === '') {
         $error['name'] = 'blank';
     }
-
+    //email取得
     $form['email'] = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    if(empty($form['email'])) {
+    if($form['email'] === '') {
         $error['email'] = 'blank';
+    }else if($form['email']){
+        $error['email'] = 'incorrect';
     }
-
+    //email duplicate 確認
     $db = dbconnect();
     $stmt = $db -> prepare('select count(*) from members where email=?');
     if(!$stmt) {
@@ -39,18 +42,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         die($db -> error);
     }
     
-
     $stmt -> bind_result($cnt);
     $stmt -> fetch();
     if($cnt > 0) {
         $error['email'] = 'duplicate';
     }
 
-    $form['password'] = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-    if(empty($form['password'])) {
+    //パスワード取得
+    $form['password'] = htmlspecialchars($_POST["password"], ENT_QUOTES);
+    if($form['password'] === '') {
         $error['password'] = 'blank';
+    }else if(strlen($form['password']) < 4){
+        $error['password'] = 'short';
     }
-
+    //エラー確認
     if(empty($error)) {
         $_SESSION['form'] = $form;
         header('Location: check_v.php');
@@ -71,6 +76,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../common.css">
     <link rel="stylesheet" href="../css/signup_v.css">
 </head>
 <body>
@@ -83,27 +89,33 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class = "">ユーザーネーム
                         <input type = "text" name = "name" value = "<?php echo htmlspecialchars($form['name']);?>"> 
                         <?php if(isset($error['name']) && $error['name'] === 'blank'): ?>
-                            <p>ユーザーネームを入力してください。</p>
+                            <p class = "error">ユーザーネームを入力してください。</p>
                         <?php endif; ?>
                     </div >
                     <div class = "">メールアドレス
                         <input type = "text" name = "email" value = "<?php  echo htmlspecialchars($form['email']);?>">
                         <?php if(isset($error['email']) && $error['email'] === 'blank'): ?>
-                            <p>メールアドレスを入力してください。</p>
+                            <p class = "error">メールアドレスを入力してください。</p>
                         <?php endif; ?>
                         <?php if(isset($error['email']) && $error['email'] === 'duplicate'):?>
-                            <p>このメールアドレスはすでに使われています。</p>
+                            <p class = "error">このメールアドレスはすでに使われています。</p>
+                        <?php  endif; ?>
+                        <?php if(isset($error['email']) && $error['email'] === 'incorrect'):?>
+                            <p class = "error">メールアドレスを正しく入力してください。</p>
                         <?php  endif; ?>
                     </div>
                     <div class = "">パスワード
                         <input type = "password" name = "password" value = "<?php echo htmlspecialchars($form['password']); ?>">
                         <?php if(isset($error['password']) && $error['password'] === 'blank'): ?>
-                            <p>ユーザーネームを入力してください。</p>
+                            <p class = "error">ユーザーネームを入力してください。</p>
+                        <?php endif; ?>
+                        <?php if(isset($error['password']) && $error['password']=== 'short'): ?>
+                            <p class = "error">パスワードは４文字以上で入力してください。</p>
                         <?php endif; ?>
                     </div>
-                    <input type = "submit" value="新規登録">
+                    <input type = "submit" class = "btn" value="新規登録">
                 </form>
-                <a href = "">戻る</a>
+                <a href = "../../login_v.php">戻る</a>
             </div>
         </div>
     </main>

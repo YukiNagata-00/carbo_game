@@ -32,18 +32,6 @@ $stmt -> bind_result($id, $name, $carbo, $image);
 
 
 
-//editページ遷移
-if(isset($_POST['edit'])){
-    $_SESSION['id'] = $id;
-    $_SESSION['name'] = $name;
-    $_SESSION['carbo'] = $carbo;
-    $_SESSION['image'] = $image;
-
-    header('Location: edit.php');
-    exit();
-
-}
-
 
 ?>
 
@@ -63,24 +51,27 @@ if(isset($_POST['edit'])){
         <form action = "my_cardslist.php">
             <input type = "submit" value = "戻る">
         </form>
-        <?php echo $id ?>
-        <?php echo $max_id ?>
+        
     </header>
     <main>
         <div class="main-wrapper">
             <div class="btn">
-                <form method="POST">
+                <form action = "" method="POST">
                     <input type = "submit" value = "編集" name = "edit">
                 </form>
             </div>
+            
             <div class="aCard"  id = "card">
+            
                 <?php while($stmt -> fetch()):?>
+                    
                         <p id = "foodName" ><?php echo $name;?></p>
                         <p id = "carbo" class = "carbo off"><?php echo $carbo;?> </p>
                         <img src = "../../game_images/<?php echo $image ?>" class = "foodImg" id = "img"> 
                     
             </div>
             <?php endwhile; ?>
+            
             <div class="btns">
                 <?php if($id != 1):?>
                     <a href="?id=<?= $id - 1?>">前のカード</a>
@@ -89,6 +80,18 @@ if(isset($_POST['edit'])){
                     <a href = "?id=<?= $id + 1 ?>">次のカード</a>
                 <?php   endif; ?>    
             </div>
+
+<!-- //editページ遷移 -->
+    <?php 
+        if(isset($_POST['edit'])){
+            $_SESSION['id'] = $id;
+            $_SESSION['name'] = $name;
+            $_SESSION['carbo'] = $carbo;
+            $_SESSION['image'] = $image;
+            header('Location: edit.php');
+            exit();
+        }
+    ?>
         </div>
 
     </main>

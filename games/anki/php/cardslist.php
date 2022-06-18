@@ -3,9 +3,9 @@ session_start();
 require('../../../common.php');
 
 
-if(isset($_SESSION['id']) && isset($_SESSION['name'])){
-    $id = $_SESSION['id'];
-    $name = $_SESSION['name'];
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['user_name'];
 }else{
     var_dump("failed");
     header('Location: ../../../top/php/index.php');
@@ -51,10 +51,10 @@ if(!$success){
 
 
 
-//新規カード作成ページへ
+//My暗記カードリスト遷移へ
 if(isset($_POST['my_cardslist'])){
-    $_SESSION['name'] = $name;
-    $_SESSION['id'] = $id;
+    $_SESSION['user_name'] = $user_name;
+    $_SESSION['user_id'] = $user_id;
     header('Location: my_cardslist.php');
     exit();
 }
@@ -77,12 +77,12 @@ if(isset($_POST['my_cardslist'])){
 </head>
 <body>
     <header>
-        <?= $name ?>
+        <?= $user_name ?>さん
         <a href = "../../../top/php/index.php">
             <input type = "button" value = "戻る">
         </a>
-        <form action = "my_cardslist.php" method = "POST">
-            <input type = "submit" name = "new_cardslist" value = "MY暗記カード一覧">
+        <form action = "" method = "POST" >
+            <input type = "submit"  value = "MY暗記カード一覧" name = "my_cardslist">
         </form>
         
     </header>
@@ -92,9 +92,6 @@ if(isset($_POST['my_cardslist'])){
         </div>
         
             <div class="cards">
-
-
-
                 <?php while($stmt -> fetch()):?>
                     <a href = "oneCard.php?id=<?= $id?>" class="card">
                         <p><?php echo $name;?></p>

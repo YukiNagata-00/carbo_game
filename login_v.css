@@ -12,20 +12,21 @@ main{
     width: 40%;
     text-align:center;
     opacity:1;
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.3);
 
 }
 .email-area {
     margin-bottom: 20px;
     height: 40%;
-    background-color: pink;
+    /* background-color: pink; */
 }
 .password-area{
     margin-bottom: 20px;
     height: 40%;
-    background-color: pink;
+    /* background-color: pink; */
 }
 .error-area {
-    background-color: orange;
+    /* background-color: orange; */
     width: 100%;
     height: 10%;
 }

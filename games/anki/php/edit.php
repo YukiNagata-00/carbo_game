@@ -1,14 +1,17 @@
 <?php
+
 session_start();
 require('../../../common.php');
 
-//session取得
-if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
-    $user_id = $_SESSION['user_id'];
-    $user_name = $_SESSION['user_name'];
+
+if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['carbo']) && isset($_SESSION['image'])){
+    $id = $_SESSION['id'];
+    $name = $_SESSION['name'];
+    $carbo = $_SESSION['carbo'];
+    $image= $_SESSION['image'];
 }else{
-    var_dump("failed");
-    // header('Location: ~/login_v.php');
+    echo "failed";
+    // header('Location: my_cardslist.php');
     // exit();
 }
 
@@ -80,7 +83,7 @@ if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
         }
 
 
-        header('Location: newCard_db.php');
+        header('Location: editCard_db.php');
         exit();
     }
 
@@ -102,23 +105,22 @@ if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
     <link rel="stylesheet" href="../../../common.css">
 </head>
 <body>
-    <header>
-        <a href= "my_cardslist.php">MY暗記カード一覧へ戻る</a>
-        <?= $user_name ?>さん
-    </header>
-    
+    <header></header>
     <main>
-        <div class="top-title">新規暗記カード登録</div>
-        <div class="main-wrapp">
+        <div class="top-title">
+            <h1>カード編集画面</h1></div>
+        <div class="main-wrapper">
+
+            
             <form action = "" method="POST" enctype="multipart/form-data" >
                 <p>食べ物の名前</p>
-                <input tyoe ="text" name = "food_name">
+                <input tyoe ="text" name = "food_name" value="<?= $name ?>">
                 <br>
                 <?php if(isset($error['food_name'] )&& $error['food_name']=== 'blank'): ?>
                     <p class = "error">食べ物の名前を入力してください</p>
                 <?php endif; ?>
                 <p>糖質量</p>
-                <input tyoe = "text" name = "carbo">
+                <input tyoe = "text" name = "carbo" value="<?= $carbo ?>">
                 <br>
                 <?php if(isset($error['carbo'] )&& $error['carbo']=== 'blank'): ?>
                     <p class = "error">糖質量を入力してください</p>
@@ -127,7 +129,9 @@ if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
                     <p class = "error">数字を入力してください</p>
                 <?php endif; ?>
                 <p>画像</p>
-                <input type= "file" name = "image">
+                
+                <img src = "../../game_images/<?= $image ?>">
+                <input type= "file" name = "image" value="<?= $image ?>">
                 <br>
                 
                 <?php if(isset($error['image'] )&& $error['image']=== 'type'): ?>
@@ -136,10 +140,9 @@ if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
                 <input type = "submit" value = "登録">
             </form>
             
+        
         </div>
-
     </main>
     <footer></footer>
-
 </body>
 </html>

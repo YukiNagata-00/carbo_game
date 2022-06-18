@@ -4,12 +4,12 @@ session_start();
 require('../../../common.php');
 
 
-if(isset($_SESSION['id']) && isset($_SESSION['name'])){
-    $id = $_SESSION['id'];
-    $name = $_SESSION['name'];
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['user_name'];
 }else{
     var_dump("failed");
-    header('Location: ../../../top/php/index.php');
+    // header('Location: ../../../top/php/index.php');
     exit();
 }
 
@@ -27,7 +27,7 @@ $max_page = floor(($count['card_cnt'] - 1 )/5 + 1);
 
 //最初のデータ５件を表示ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
-$stmt = $db->prepare("select id, name, carbo, image from cards where member_id= '$id' order by id desc limit ?, 5");
+$stmt = $db->prepare("select id, name, carbo, image from cards where member_id= '$user_id' order by id desc limit ?, 5");
 
 if(!$stmt){
     die($db->error);
@@ -49,6 +49,17 @@ if(!$success){
 }
 
 
+///新規暗記カード登録ページへ遷移
+
+if(isset($_POST['newCard'])){
+    $_SESSION['user_name'] = $user_name;
+    $_SESSION['user_id'] = $user_id;
+    header('Location: newCard.php');
+    exit();
+}
+
+
+
 ?>
 
 
@@ -66,13 +77,13 @@ if(!$success){
 </head>
 <body>
     <header>
-        <?= $name ?>
+        <?= $user_name ?>さん
         <a href = "cardslist.php">
             <input type = "button" value = "一覧へ戻る">
         </a>
         <form action = "newCard.php" method="POST" name = "newCard">
-                    <input type = "submit" value = "カードを新規登録" >
-            </form>
+            <input type = "submit" value = "カードを新規登録" >
+        </form>
     </header>
     <main>
         <div class="top-title">

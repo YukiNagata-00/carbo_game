@@ -1,26 +1,28 @@
 <?php
 session_start();
 require('../../common.php');
-if(isset($_SESSION['id']) && isset($_SESSION['name'])){
-    $id = $_SESSION['id'];
-    $name = $_SESSION['name'];
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['user_name'];
 
 }else{
     header('Location: ../../login_v.php');
     exit();
 }
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    
+
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['user_name'] = $user_name;
+
     if($_POST["ate_game"]){
-        $_SESSION['id'] = $id;
-    $_SESSION['name'] = $name;
+        
         header('Location: ../../games/carbo_ate/php/carbo_ate.php ');
         exit();
     }elseif($_POST["total_game"]){
         header('Location: ../../games/total_carbo/php/total_carbo.php');
         exit();
     }elseif($_POST["anki"]){
-        header('Location: ../../games/anki/php/anki.php');
+        header('Location: ../../games/anki/php/cardslist.php');
         exit();
     }
 }
@@ -46,13 +48,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <body>
     <header>
         <a href = "logout.php">ログアウト</a>
-        <!-- <?php echo htmlspecialchars($id) ?> -->
-        <?php echo htmlspecialchars($name)?>
+        <!-- <?php echo htmlspecialchars($user_id) ?> -->
+        <?php echo htmlspecialchars($user_name)?>さん
     </header>
     <main>
         <div class="top-title">
             <h1>トップページ</h1>
-            <p>選択してね</p>
+            <p>選択してね</p> 
         </div>
         
         <div class="items-area">

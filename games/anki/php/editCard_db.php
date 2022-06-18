@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require('../../../common.php');
 
@@ -17,7 +18,8 @@ if(isset( $_SESSION['form'])){
 
 
 var_dump($form);
-
+var_dump($id);
+var_dump($name);
 if($form['image'] === ""){
     // echo "noimage";
     $form['image'] = '../../game_images/no_image_square.jpg';
@@ -29,6 +31,7 @@ if($form['image'] === ""){
 $db = dbconnect();
 
 $stmt = $db -> prepare('INSERT INTO cards (name, carbo, image, member_id) VALUES (?, ?, ?, ?)');
+$stmt = $db -> prepare('INSERT INTO cards (name, carbo, image, member_id) VALUES (?, ?, ?, ?)');
 $stmt -> bind_param('sdss', $form['food_name'], $form['carbo'], $form['image'], $id);
 $success = $stmt -> execute();
 	if(!$success){
@@ -38,6 +41,4 @@ $success = $stmt -> execute();
 	unset($_SESSION['form']);
 	header('Location: my_cardslist.php');
 
-
 ?>
-

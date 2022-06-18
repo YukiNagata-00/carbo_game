@@ -33,14 +33,14 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
             die($db -> error);
         }
 
-        $stmt -> bind_result($id, $name, $hashed_password);
+        $stmt -> bind_result($user_id, $user_name, $hashed_password);
         $stmt -> fetch();
 
-        // var_dump($hashed_password);
+        
         if(password_verify($form['password'], $hashed_password)){
             session_regenerate_id();
-            $_SESSION['id'] = $id;
-            $_SESSION['name'] = $name;
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['user_name'] = $user_name;
             // var_dump('success');
             header('Location: ./top/php/index.php');
             exit();
@@ -86,7 +86,7 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
                         <label for = "email">メールアドレス</label>
                         <input type = "text" name = "email" value = "<?php echo  htmlspecialchars($form['email']); ?>">
                         <div class= "error-area">
-                        <p> エラー文</p>
+                        <p> </p>
                         <?php if(isset($error['email']) && $error['email'] === 'blank'): ?>
                             <p class = "error">メールアドレスを入力してください</p>
                         <?php endif; ?> 
@@ -96,10 +96,10 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
                         
                     </div>
                     <div class = "password-area">
-                    <label for = "password">メールアドレス</label>
+                    <label for = "password">パスワード</label>
                         <input type = "password" name = "password" value = "<?php echo htmlspecialchars($form['password']); ?>">
                         <div class= "error-area">
-                                <p> エラー文</p>
+                                <p></p>
                             <?php if(isset($error['password']) && $error['password'] === 'blank'): ?>
                                 <p class = "error">パスワードを入力してください</p>
                             <?php endif; ?>
