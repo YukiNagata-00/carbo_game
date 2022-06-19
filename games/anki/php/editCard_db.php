@@ -17,9 +17,9 @@ if(isset( $_SESSION['form'])){
 
 
 
-var_dump($form);
-var_dump($id);
-var_dump($name);
+// var_dump($form);
+// var_dump($id);
+// var_dump($name);
 if($form['image'] === ""){
     // echo "noimage";
     $form['image'] = '../../game_images/no_image_square.jpg';
@@ -30,7 +30,7 @@ if($form['image'] === ""){
 //DBへ
 $db = dbconnect();
 
-// $stmt = $db -> prepare('INSERT INTO cards (name, carbo, image, member_id) VALUES (?, ?, ?, ?)');
+
 $stmt = $db -> prepare("UPDATE cards SET name=?, carbo=?, image=? WHERE id= '$id'");
 $stmt -> bind_param('sds', $form['food_name'], $form['carbo'], $form['image']);
 $success = $stmt -> execute();
