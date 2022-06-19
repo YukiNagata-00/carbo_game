@@ -30,9 +30,9 @@ if($form['image'] === ""){
 //DBへ
 $db = dbconnect();
 
-$stmt = $db -> prepare('INSERT INTO cards (name, carbo, image, member_id) VALUES (?, ?, ?, ?)');
-$stmt = $db -> prepare('INSERT INTO cards (name, carbo, image, member_id) VALUES (?, ?, ?, ?)');
-$stmt -> bind_param('sdss', $form['food_name'], $form['carbo'], $form['image'], $id);
+// $stmt = $db -> prepare('INSERT INTO cards (name, carbo, image, member_id) VALUES (?, ?, ?, ?)');
+$stmt = $db -> prepare("UPDATE cards SET name=?, carbo=?, image=? WHERE id= '$id'");
+$stmt -> bind_param('sds', $form['food_name'], $form['carbo'], $form['image']);
 $success = $stmt -> execute();
 	if(!$success){
 		die($db -> error);
