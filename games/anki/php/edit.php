@@ -27,16 +27,16 @@ $error = [];
 if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
     //食べ物の名前取得
     $form['food_name'] = htmlspecialchars($_POST['food_name'], ENT_QUOTES);
-    // var_dump($form['food_name']);
+    
     if($form['food_name'] === ""){
         $error['food_name'] = 'blank';
-        // var_dump("empty");
+    
     }
 
 
     //糖質量取得
     $form['carbo']= htmlspecialchars($_POST['carbo'], ENT_QUOTES);
-    // var_dump($form['carbo']);
+    
     if($form['carbo'] === ""){
         $error['carbo'] = 'blank';   
     }else if(!is_numeric($form['carbo'])){//数値か確認
@@ -45,7 +45,7 @@ if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
     }
     $doubled_carbo = (double)$form['carbo'];
     $form['carbo'] = $doubled_carbo;
-    var_dump($form['carbo']);
+    
     
     if(isset($_FILES['image'])){
         $image =  $_FILES['image'];
@@ -71,11 +71,20 @@ if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
         if($image['name'] !== '') {
 
             //画像のアップロード
-            $filename = date('YmdHis'). '_' . $image['name'];
             
-            if(!move_uploaded_file($image['tmp_name'], '../../game_images/' . $filename)){
-                die('ファイルのアップロードに失敗しました。');
+            if(str_contains($image['name'], 'game_images')){//すでにファイルにアップロードされている画像だったら
+                
+                $filename = $image['name'];
+
+            }else{
+                $filename = date('YmdHis').'game_images'. '_' . $image['name'];
+            
+                if(!move_uploaded_file($image['tmp_name'], '../../game_images/' . $filename)){
+                    die('ファイルのアップロードに失敗しました。');
+                }
+
             }
+            
             
             $_SESSION['form']['image'] = $filename;
         }else {

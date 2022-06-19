@@ -24,8 +24,6 @@ if($form['image'] === ""){
     // echo "noimage";
     $form['image'] = '../../game_images/no_image_square.jpg';
     // var_dump($form);
-}else{
-    // echo 'image';
 }
 //DBへ
 $db = dbconnect();

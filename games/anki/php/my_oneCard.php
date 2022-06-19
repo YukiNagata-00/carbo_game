@@ -32,7 +32,6 @@ $stmt -> bind_result($id, $name, $carbo, $image);
 
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -67,6 +66,7 @@ $stmt -> bind_result($id, $name, $carbo, $image);
                     
                         <p id = "foodName" ><?php echo $name;?></p>
                         <p id = "carbo" class = "carbo off"><?php echo $carbo;?> </p>
+                        <!-- <img src = "<?php echo $image ?>" class = "foodImg" id = "img">  -->
                         <img src = "../../game_images/<?php echo $image ?>" class = "foodImg" id = "img"> 
                     
             </div>

@@ -16,7 +16,7 @@ if(isset( $_SESSION['form'])){
 
 
 
-var_dump($form);
+var_dump($id);
 
 if($form['image'] === ""){
     // echo "noimage";

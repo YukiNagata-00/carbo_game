@@ -63,15 +63,22 @@ if(isset($_POST['food_name']) && isset($_POST['carbo'])) {
     //エラー確認
     if(empty($error)){
         $_SESSION['form'] = $form;
-        $_SESSION['id'] = $id;
-        $_SESSION['name'] = $name;
+        $_SESSION['id'] = $user_id;
+        $_SESSION['name'] = $user_name;
         if($image['name'] !== '') {
 
             //画像のアップロード
-            $filename = date('YmdHis'). '_' . $image['name'];
+            if(str_contains($image['name'], 'game_images')){//すでにファイルにアップロードされている画像だったら
+                
+                $filename = $image['name'];
+
+            }else{
+                $filename = date('YmdHis').'game_images'. '_' . $image['name'];
             
-            if(!move_uploaded_file($image['tmp_name'], '../../game_images/' . $filename)){
-                die('ファイルのアップロードに失敗しました。');
+                if(!move_uploaded_file($image['tmp_name'], '../../game_images/' . $filename)){
+                    die('ファイルのアップロードに失敗しました。');
+                }
+
             }
             
             $_SESSION['form']['image'] = $filename;
