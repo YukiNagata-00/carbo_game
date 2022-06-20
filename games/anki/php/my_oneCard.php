@@ -10,10 +10,18 @@ if(!$id){
 //DB接続
 $db = dbconnect();
 
-$counts = $db->query('select count(*) as cnt from cards');
-$count = $counts-> fetch_assoc();
-$max_id = $count['cnt'];
-// var_dump($max_id);
+$counts = $db->query('SELECT id FROM cards');
+$count = $counts-> fetch_all();
+var_dump($count[0][0]);
+
+//idの最大値と最小値を取得
+$records = $db -> query('SELECT  MAX(id) AS max, MIN(id) AS min FROM cards');
+$record = $records->fetch_assoc();
+$max_id = $record['max'];
+$min_id = $record['min'];
+// var_dump($max_id );
+
+
 
 //データ取得
 $stmt = $db->prepare('select id, name, carbo, image from cards  where id =?  limit 1');
@@ -73,7 +81,7 @@ $stmt -> bind_result($id, $name, $carbo, $image);
             <?php endwhile; ?>
             
             <div class="btns">
-                <?php if($id != 1):?>
+                <?php if($id != $min_id):?>
                     <a href="?id=<?= $id - 1?>">前のカード</a>
                 <?php   endif; ?>
                 <?php if($id != $max_id):?>
