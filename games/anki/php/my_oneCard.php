@@ -37,6 +37,7 @@ if(!$success){
 }
 
 $stmt -> bind_result($id, $name, $carbo, $image);
+//test
 
 
 
