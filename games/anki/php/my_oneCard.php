@@ -10,17 +10,29 @@ if(!$id){
 //DB接続
 $db = dbconnect();
 
-$counts = $db->query('SELECT id FROM cards');
-$count = $counts-> fetch_all();
-var_dump($count[0][0]);
+//idを取得し配列に格納
+$ids = [];
+$results = $db->query("SELECT * FROM cards ");
+if($results){
+    while($result = $results->fetch_assoc()){
+        $ids[]= $result['id'];
+    }
+}
+// print_r($ids);
+$int_id = (int)$id;
+
+$index = array_search($int_id, $ids);
+
+
 
 //idの最大値と最小値を取得
 $records = $db -> query('SELECT  MAX(id) AS max, MIN(id) AS min FROM cards');
 $record = $records->fetch_assoc();
 $max_id = $record['max'];
 $min_id = $record['min'];
-// var_dump($max_id );
 
+// var_dump($min_id);
+// var_dump($max_id);
 
 
 //データ取得
@@ -75,7 +87,6 @@ $stmt -> bind_result($id, $name, $carbo, $image);
                     
                         <p id = "foodName" ><?php echo $name;?></p>
                         <p id = "carbo" class = "carbo off"><?php echo $carbo;?> </p>
-                        <!-- <img src = "<?php echo $image ?>" class = "foodImg" id = "img">  -->
                         <img src = "../../game_images/<?php echo $image ?>" class = "foodImg" id = "img"> 
                     
             </div>
@@ -83,10 +94,10 @@ $stmt -> bind_result($id, $name, $carbo, $image);
             
             <div class="btns">
                 <?php if($id != $min_id):?>
-                    <a href="?id=<?= $id - 1?>">前のカード</a>
+                    <a href="?id=<?= $ids[$index - 1] ?>">前のカード</a>
                 <?php   endif; ?>
                 <?php if($id != $max_id):?>
-                    <a href = "?id=<?= $id + 1 ?>">次のカード</a>
+                    <a href = "?id=<?= $ids[$index + 1] ?>">次のカード</a>
                 <?php   endif; ?>    
             </div>
 
