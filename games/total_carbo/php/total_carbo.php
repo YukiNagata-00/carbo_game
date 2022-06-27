@@ -2,9 +2,9 @@
 session_start();
 require('../../../common.php');
 
-if(isset($_SESSION['id']) && isset($_SESSION['name'])){
-    $id = $_SESSION['id'];
-    $name = $_SESSION['name'];
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['user_name'];
 
 }else{
     var_dump("failed");
@@ -25,8 +25,8 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
     <link rel="stylesheet" href="../css/total-carbo.css">
 <body>
     <header>
-    <?php echo htmlspecialchars($id) ?> 
-    <?php echo htmlspecialchars($name)?>
+    <?php echo htmlspecialchars($user_id) ?> 
+    <?php echo htmlspecialchars($user_name)?>
     <form action = "../../../top/php/index.php">
         <input type = "submit" value = "戻る">
     </form>
