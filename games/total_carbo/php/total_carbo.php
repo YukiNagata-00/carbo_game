@@ -12,6 +12,15 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
     // exit();
 }
 
+if(isset($_POST["game_start"])){
+
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_name'] =  $user_name;
+
+    header('Location : total_playing.php');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +68,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
             </div>
         </div>
         <div class="btn-wrapper">
-            <form action= "ate_playing.php" method = "POST">
+            <form action= "" method = "POST" name = "game_start">
                 <input type = "submit" class = "start-btn"  value = "スタート">
             </form>
         </div>

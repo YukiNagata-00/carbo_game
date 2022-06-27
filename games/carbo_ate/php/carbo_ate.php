@@ -14,7 +14,7 @@ if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $_SESSION['user_id'] = $user_id;
     $_SESSION['user_name'] = $user_name;
-    header('Location: ate_playing.php');
+    header('Location: carbo_array.php');
     exit();
 }
 

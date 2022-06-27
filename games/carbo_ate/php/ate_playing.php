@@ -1,9 +1,11 @@
 <?php
 session_start();
 require('../../../common.php');
-if(isset($_SESSION['id']) && isset($_SESSION['name'])){
-    $id = $_SESSION['id'];
-    $name = $_SESSION['name'];
+
+if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSION['foods'])){
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['user_name'];
+    $foods =  $_SESSION['foods'];
 
 }else{
     var_dump("failed");
@@ -14,21 +16,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
 
 
 
-$db = dbconnect();
-$stmt = $db ->prepare('select * from foods ');
+var_dump($foods);
 
-if(!$stmt){
-    die($db -> error);
-}
-$success = $stmt -> execute();
-if(!$success){
-    die($db -> error);
-}
 
-// $stmt -> bind_result($name, $carbo, $image);
-
-$data = $stmt ->fetch();
-print_r($data);
 
 
 
