@@ -26,6 +26,8 @@ if($records){
 }
 print_r($foods);
 
+
+
 if(isset($foods)){
     $_SESSION['foods'] = $foods;
     $_SESSION['user_id'] = $user_id;

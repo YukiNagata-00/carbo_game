@@ -20,7 +20,7 @@ if($results){
 }
 // print_r($ids);
 $int_id = (int)$id;
-
+//配列のインデックス取得
 $index = array_search($int_id, $ids);
 
 
