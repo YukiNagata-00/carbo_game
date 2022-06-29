@@ -6,23 +6,28 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
     $user_id = $_SESSION['user_id'];
     $user_name = $_SESSION['user_name'];
     $foods =  $_SESSION['foods'];
+    $q_index =  $_SESSION['q_index'];
+    $result = $_SESSION['result'];
+
+}else if(isset($_SESSION['foods'])){
+
 }else{
     // var_dump("failed");
     // header('Location: ../../login_v.php');
     // exit();
 }
 
-//配列のインデックス
-$q_index = 0;
 
-var_dump( $foods[$q_index]);
+
+// var_dump($foods[$q_index]);
+var_dump($result);
 $q_id = $foods[$q_index]['id'];
 $q_name = $foods[$q_index]['name'];
 $q_carbo = $foods[$q_index]['carbo'];
 $q_image = $foods[$q_index]['image'];
 
 
-//入力値のチェック
+//入力値のチェック_____________________________________________________________
 $error = [];
 if(isset($_POST['input_btn'])){
     $input_ans = (double)htmlspecialchars($_POST['input_ans']);
@@ -35,13 +40,23 @@ if(isset($_POST['input_btn'])){
     }else if(strlen($input_ans) > 4 ){
         $error[] = '正しい値を入力してください。';
     }
+
+    if(empty($error)){
+        $_SESSION['input_ans'] = $input_ans;
+        $_SESSION['foods'] = $foods;
+        $_SESSION['result'] = $result;
+        $_SESSION['q_index'] = $q_index;
+    
+        header('Location: check.php');
+        exit();
+    }
+
+
 }
+//-------------------------------------------------------------------------
 
-$result = []; //○か×か格納
 
-if(empty($error)){
 
-}
 
 
 ?>
@@ -58,6 +73,9 @@ if(empty($error)){
 </head>
 <body>
     <header>
+    <form action = "carbo_ate.php">
+        <input type = "submit" value = "戻る">
+    </form>
     </header>
     <main>
     <div class="top-title">
