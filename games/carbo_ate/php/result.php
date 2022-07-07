@@ -37,7 +37,7 @@ var_dump($point);
         <div class="results">
             
                 <?php foreach($foods as $food): ?>
-                <div class="result">
+                <div class="answer">
                     <p><?php echo $food['name'].'<br>'; ?></p>
                     <img src ="<?php echo $food['image'].'<br>';?>" >
                     <p>答え <?php echo $food['carbo'];?>カーボ</p>
