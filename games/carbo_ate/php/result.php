@@ -20,7 +20,7 @@ var_dump($point);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../../common.css">
-    
+    <link rel="stylesheet" href="../css/result.css">
 
 </head>
 <body>
@@ -35,14 +35,16 @@ var_dump($point);
             <h2><?= $point ?>点 / 100点</h2>
         </div>
         <div class="results">
-            <?php foreach($foods as $food): ?>
             
-                <p><?php echo $food['name'].'<br>'; ?></p>
-                <img src ="<?php echo $food['image'].'<br>';?>" >
-                <p>答え <?php echo $food['carbo'];?>カーボ</p>
+                <?php foreach($foods as $food): ?>
+                <div class="result">
+                    <p><?php echo $food['name'].'<br>'; ?></p>
+                    <img src ="<?php echo $food['image'].'<br>';?>" >
+                    <p>答え <?php echo $food['carbo'];?>カーボ</p>
+                </div>
+                <?php endforeach; ?>
             
-            
-            <?php endforeach; ?>
+
         </div>
     </main>
     <footer></footer>
