@@ -9,7 +9,7 @@ $form = [
 
 $error = [];
 
-if($_SERVER['REQUEST_METHOD']  === 'POST')  {
+if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
     //フォームから値を受け取り、空文字か確認
     $form['email'] = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     if($form['email'] === '') {
@@ -55,6 +55,11 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
 
 
 
+}else if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['test_login'])){
+    $_SESSION['user_id'] = "***";
+    $_SESSION['user_name'] = "ゲスト";
+    header('Location: ./top/php/index.php');
+    exit();
 }
 
 ?>
@@ -81,7 +86,7 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
                 
                 <h2>ログイン</h2>
                 <!-- <form action="../../controller/controller_php/login_c.php" method="POST"> -->
-                <form action="" method="POST">
+                <form action="" method="POST" >
                     <div class = "email-area">
                         <label for = "email">メールアドレス</label>
                         <input type = "text" name = "email" value = "<?php echo  htmlspecialchars($form['email']); ?>">
@@ -109,9 +114,11 @@ if($_SERVER['REQUEST_METHOD']  === 'POST')  {
                         <p>ログインに失敗しました。もう一度お試しください</p>
                     
                     <?php endif; ?>
-                    <input type = "submit" value="ログイン" class = "btn">
+                    <input type = "submit" value="ログイン" class = "btn" name = "login">
+                    <input type = "submit" value="ログインせずに使う" class = "sub_btn" name = "test_login">
                 </form>
                 <a href = "./signup/php/signup_v.php">新規登録はこちら</a>
+                
             </div>
         </div>
     </main>
