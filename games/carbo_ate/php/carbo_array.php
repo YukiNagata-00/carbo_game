@@ -40,6 +40,7 @@ if(isset($foods)){
     $_SESSION['user_name'] = $user_name;
     $_SESSION['q_index'] = $q_index;
     $_SESSION['result'] = $result;
+    $_SESSION['point'] = $point;
     header('Location: ate_playing.php');
 }
 ?>

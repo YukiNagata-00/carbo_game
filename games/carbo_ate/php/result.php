@@ -4,9 +4,10 @@ require('../../../common.php');
 
 $foods =  $_SESSION['foods'];
 $result = $_SESSION['result'];
-
+$point = $_SESSION['point'];
 
 var_dump($result);
+var_dump($point);
 
 ?>
 

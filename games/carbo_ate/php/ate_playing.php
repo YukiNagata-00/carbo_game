@@ -8,7 +8,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
     $foods =  $_SESSION['foods'];
     $q_index =  $_SESSION['q_index'];
     $result = $_SESSION['result'];
-
+    $point = $_SESSION['point'];
 }else if(isset($_SESSION['foods'])){
 
 }else{
@@ -20,12 +20,13 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
 
 
 var_dump($result);
+var_dump($point);
 $q_id = $foods[$q_index]['id'];
 $q_name = $foods[$q_index]['name'];
 $q_carbo = $foods[$q_index]['carbo'];
 $q_image = $foods[$q_index]['image'];
 
-
+var_dump($q_carbo);
 //入力値のチェック_____________________________________________________________
 $error = [];
 if(isset($_POST['input_btn'])){
@@ -49,6 +50,7 @@ if(isset($_POST['input_btn'])){
         $_SESSION['foods'] = $foods;
         $_SESSION['result'] = $result;
         $_SESSION['q_index'] = $q_index;
+        $_SESSION['point'] = $point;
         header('Location: check.php');
         exit();
     }
