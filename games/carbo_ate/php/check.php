@@ -10,16 +10,16 @@ if(isset($_SESSION['input_ans']) && isset($_SESSION['foods']) && isset($_SESSION
     $result = $_SESSION['result'];
 
 }
-// else{
 
-// }
-var_dump($input_ans);
-var_dump($foods);
-var_dump($q_index);
-var_dump($result);
+// var_dump($input_ans);
+// var_dump($foods);
+// var_dump($q_index);
+// var_dump($result);
+
+
 
 $ans_carbo = (double)$foods[$q_index]['carbo'];
-var_dump($ans_carbo);
+// var_dump($ans_carbo);
 
 if($input_ans == $ans_carbo){
     var_dump("cor");
@@ -34,12 +34,12 @@ if($q_index < 4){
     $_SESSION['foods'] = $foods;
     $_SESSION['result'] = $result;
     $_SESSION['q_index'] = $q_index;
-    header('Location: ate_playing.php');
+    // header('Location: ate_playing.php');
     exit();
 }else{
     $_SESSION['foods'] = $foods;
     $_SESSION['result'] = $result;
-    header('Location: result.php');
+    // header('Location: result.php');
     exit();
 }
 

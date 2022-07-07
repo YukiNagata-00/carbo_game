@@ -19,7 +19,6 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
 
 
 
-// var_dump($foods[$q_index]);
 var_dump($result);
 $q_id = $foods[$q_index]['id'];
 $q_name = $foods[$q_index]['name'];
@@ -42,11 +41,14 @@ if(isset($_POST['input_btn'])){
     }
 
     if(empty($error)){
+        // $end_time = time();
+    
+        
+        // var_dump($time);
         $_SESSION['input_ans'] = $input_ans;
         $_SESSION['foods'] = $foods;
         $_SESSION['result'] = $result;
         $_SESSION['q_index'] = $q_index;
-    
         header('Location: check.php');
         exit();
     }
