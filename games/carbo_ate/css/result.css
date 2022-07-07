@@ -1,3 +1,7 @@
 .answer{
     display: flex;
 }
+
+.results{
+    display: flex;
+}

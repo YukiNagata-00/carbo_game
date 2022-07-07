@@ -43,7 +43,14 @@ var_dump($point);
                     <p>答え <?php echo $food['carbo'];?>カーボ</p>
                 </div>
                 <?php endforeach; ?>
-            
+
+                <?php foreach($result as $r): ?>
+                    <?php if($r == "correct"): ?>
+                        <p>⭕️</p>
+                    <?php else:  ?>
+                        <p>❌</p>
+                    <?php endif; ?>
+                <?php endforeach; ?>
 
         </div>
     </main>
