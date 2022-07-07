@@ -32,6 +32,8 @@ $q_index = 0;
 //○か×か格納する配列
 $result = [];
 
+//ポイント
+$point =0;
 if(isset($foods)){
     $_SESSION['foods'] = $foods;
     $_SESSION['user_id'] = $user_id;
