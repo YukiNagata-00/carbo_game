@@ -42,10 +42,7 @@ if(isset($_POST['input_btn'])){
     }
 
     if(empty($error)){
-        // $end_time = time();
-    
-        
-        // var_dump($time);
+
         $_SESSION['input_ans'] = $input_ans;
         $_SESSION['foods'] = $foods;
         $_SESSION['result'] = $result;
