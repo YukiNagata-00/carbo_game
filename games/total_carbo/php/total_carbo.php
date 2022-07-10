@@ -16,8 +16,8 @@ if(isset($_POST["game_start"])){
 
     $_SESSION['user_id'] = $user_id;
     $_SESSION['user_name'] =  $user_name;
-
-    header('Location : total_playing.php');
+    echo "hit";
+    header('Location: total_playing.php');
     exit();
 }
 
@@ -68,8 +68,8 @@ if(isset($_POST["game_start"])){
             </div>
         </div>
         <div class="btn-wrapper">
-            <form action= "" method = "POST" name = "game_start">
-                <input type = "submit" class = "start-btn"  value = "スタート">
+            <form action= "" method = "POST" >
+                <input type = "submit" class = "start-btn"  value = "スタート" name = "game_start">
             </form>
         </div>
     </main>
