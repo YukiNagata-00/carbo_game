@@ -3,10 +3,23 @@
     session_start();
     require('../../../common.php');
 
+
     if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
         $user_id = $_SESSION['user_id'];
         $user_name = $_SESSION['user_name'];
     }
+
+    //DB接続  データ取り出し
+    $db = dbconnect();
+    $foods = [];
+    $records = $db->query("SELECT name, carbo, image  FROM foods ORDER BY RAND() LIMIT 5");
+    if($records){
+        while($record = $records->fetch_assoc()){
+            $foods[]= $record;
+        }
+    }
+    // print_r($foods);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +36,9 @@
         <a href="../php/total_carbo.php">ゲームをやめる</a>
         <?= $user_name ?>さん
     </header>
-    <main></main>
+    <main>
+        <div class ="character"></div>
+    </main>
     <footer></footer>
 </body>
 </html>
