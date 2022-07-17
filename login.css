@@ -2,9 +2,15 @@
 main{
     margin-top: -1px;
 }
+.carbo_town{
+    margin-top: -1px;
+    padding-top: 30px;
+    padding-left: 31%;
+    font-size: 100px;
+}
 .login-wrapper {
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 28%;
     background-color: white;
     border-radius:10px;
@@ -59,3 +65,4 @@ main{
     background-color: #FFCC66;
     border-radius:10px;
 }
+

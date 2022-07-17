@@ -75,13 +75,17 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
     <title>Document</title>
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="./login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
         
     </header>
     <main>
-        
+        <h1 class = "carbo_town">Carbo Town</h1>
             <div class="login-wrapper">
                 
                 <h2>ログイン</h2>
