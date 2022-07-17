@@ -73,15 +73,15 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./common.css">
-    <link rel="stylesheet" href="./login_v.css">
+    <link rel="stylesheet" href="common.css">
+    <!-- <link rel="stylesheet" href="./login_v.css"> -->
 </head>
 <body>
     <header>
         
     </header>
     <main>
-        <div class="main-wrapper">
+        <!-- <div class="main-wrapper"> -->
             <div class="login-wrapper">
                 
                 <h2>ログイン</h2>
@@ -120,7 +120,7 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
                 <a href = "./signup/php/signup_v.php">新規登録はこちら</a>
                 
             </div>
-        </div>
+        <!-- </div> -->
     </main>
     <footer></footer>
 </body>
