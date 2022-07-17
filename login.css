@@ -1,43 +1,64 @@
 
 main{
-    position:relative;
+    margin-top: -1px;
 }
 .login-wrapper {
     position: absolute;
     top: 20%;
-    left: 25%;
+    left: 28%;
     background-color: white;
     border-radius:10px;
-    height: 60%;
+    height: 50%;
     width: 40%;
     text-align:center;
     opacity:1;
     box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.3);
 
 }
+.login-wrapper h2{
+    margin-bottom: 30px;
+}
 .email-area {
-    margin-bottom: 20px;
-    height: 40%;
+    
+    margin-bottom: 30px;
+    height: 35%;
     /* background-color: pink; */
 }
 .password-area{
-    margin-bottom: 20px;
-    height: 40%;
+    margin-bottom: 30px;
+    height: 35%;
     /* background-color: pink; */
 }
 .error-area {
     /* background-color: orange; */
     width: 100%;
-    height: 10%;
+    height: 8%;
 }
 .error {
     color: red;
+    font-weight: bold;
 }
-
+.login-wrapper a{
+    margin-top:20px ;
+    display: inline-block;
+}
+.btn_area{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
 .btn{
-    width:20%;
     cursor:pointer;
+    
+    display: block;
+}
+.login_btn{
+    width:25%; 
+    padding: 5px;
     background-color: #FFCC66;
     border-radius:10px;
-    padding: 4px;
+}
+.sub_btn{
+
 }

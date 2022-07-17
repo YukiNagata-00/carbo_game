@@ -74,18 +74,18 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="common.css">
-    <!-- <link rel="stylesheet" href="./login.css"> -->
+    <link rel="stylesheet" href="./login.css">
 </head>
 <body>
     <header>
         
     </header>
     <main>
-        <!-- <div class="main-wrapper"> -->
+        
             <div class="login-wrapper">
                 
                 <h2>ログイン</h2>
-                <!-- <form action="../../controller/controller_php/login_c.php" method="POST"> -->
+                
                 <form action="" method="POST" >
                     <div class = "email-area">
                         <label for = "email">メールアドレス</label>
@@ -114,13 +114,18 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
                         <p>ログインに失敗しました。もう一度お試しください</p>
                     
                     <?php endif; ?>
-                    <input type = "submit" value="ログイン" class = "btn" name = "login">
-                    <input type = "submit" value="ログインせずに使う" class = "sub_btn" name = "test_login">
+                    <div class="btn_area">
+                        <input type = "submit" value="ログイン" class = "btn login_btn" name = "login">
+                    </div>
+                    <div class="btn_area">
+                        <input type = "submit" value="ログインせずに使う" class = "btn sub_btn" name = "test_login">
+                    </div>
+                    
                 </form>
                 <a href = "./signup/php/signup_v.php">新規登録はこちら</a>
                 
             </div>
-        <!-- </div> -->
+        
     </main>
     <footer></footer>
 </body>
