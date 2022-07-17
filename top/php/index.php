@@ -44,6 +44,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <title> トップページ</title>
     <link rel="stylesheet" href="../../common.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -52,8 +55,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <?php echo htmlspecialchars($user_name)?>さん
     </header>
     <main>
+        
         <div class="top-title">
-            <h1>トップページ</h1>
+            <h1 class="carbo_town">Welcome to Carbo Town!</h1>
             <p>選択してね</p> 
         </div>
         

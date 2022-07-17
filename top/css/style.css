@@ -1,29 +1,30 @@
 .top-title {
     text-align: center;
-    margin-top: -21px;
+    margin-top: -1px;
+    padding-top: 10px;
 }
 main{
     text-align: center;
+    margin-top: -1px;
 }
-
+.carbo_town{
+    margin-top: -1px;
+    padding-top: 15px;
+}
 .items-area {
-    /* background-color: palegreen; */
     width: 100%;
-    /* height: 417px; */
     display: flex;
-    /* margin-left: 90px; */
-    /* padding-top: 30px; */
+    justify-content: space-around;
+    padding-top: 50px;
 }
 .item {
     width: 280px;
     height: 280px;
     background-color: white;
-    margin-right:150px;
     text-align: center;
     border-radius: 10%;
     padding-top: 5px;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-    /* margin-left: 50px; */
 }
 .btn{
     width: 30%;
@@ -39,11 +40,3 @@ main{
     width: 100px;
     height: 100px;
 }
-/* .btns{
-    width: 100%;
-    height: 100px;
-    background-color: blueviolet;
-} */
-/* .flash-game {
-    
-} */
