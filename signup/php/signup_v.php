@@ -78,11 +78,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Document</title>
     <link rel="stylesheet" href="../../common.css">
     <link rel="stylesheet" href="../css/signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 </head>
 <body>
     <header></header>
     <main>
-    <!-- <div class="main-wrapper"> -->
+    <h1 class = "carbo_town">Carbo Town</h1>
             <div class="signup-wrapper">
                 <h2>新規登録</h2>
                 <form action="" method="POST">
@@ -117,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
                 <a href = "../../login_v.php">戻る</a>
             </div>
-        <!-- </div> -->
+        
     </main>
     <footer></footer>
 </body>

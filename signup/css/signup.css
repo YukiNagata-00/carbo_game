@@ -1,6 +1,12 @@
 main{
     margin-top: -1px;
 }
+.carbo_town{
+    margin-top: -1px;
+    padding-top: 30px;
+    padding-left: 31%;
+    font-size: 100px;
+}
 .name_area{
     margin-bottom: 30px;
     height: 40%;
@@ -36,11 +42,11 @@ main{
 
 .signup-wrapper {
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 28%;
     background-color: white;
     border-radius:10px;
-    height: 65%;
+    height: 58%;
     width: 40%;
     text-align:center;
     opacity:1;
