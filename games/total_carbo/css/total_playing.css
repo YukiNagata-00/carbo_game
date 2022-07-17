@@ -1,8 +1,7 @@
 
-
-main {
-    background-color: aliceblue;
-    position: absolute;
+main{
+    margin-top: -1px;
+    background-color: rgb(163, 226, 239);
 }
 
 .character{
