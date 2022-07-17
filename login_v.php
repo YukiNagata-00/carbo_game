@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="common.css">
-    <!-- <link rel="stylesheet" href="./login_v.css"> -->
+    <!-- <link rel="stylesheet" href="./login.css"> -->
 </head>
 <body>
     <header>
