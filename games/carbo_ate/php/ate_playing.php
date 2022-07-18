@@ -9,8 +9,6 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
     $q_index =  $_SESSION['q_index'];
     $result = $_SESSION['result'];
     $point = $_SESSION['point'];
-}else if(isset($_SESSION['foods'])){
-
 }else{
     // var_dump("failed");
     // header('Location: ../../login_v.php');
