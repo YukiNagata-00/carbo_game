@@ -53,7 +53,9 @@ main{
     display: flex;
     justify-content: center;
 }
-
+.ans_content.off{
+    display: none;
+}
 .ans_content img{
     width: 90px;
     height: 90px;
@@ -73,6 +75,9 @@ main{
     border: none;
     cursor: pointer;
 }
+.next_form.off{
+    display: none;
+}
 #form{
     display: flex;
     justify-content: center;
@@ -86,7 +91,7 @@ main{
     margin-right: 30px;
     border: 2px solid rgb(249, 242, 163);
 }
-.input_btn{
+#input_btn{
     display: inline;
     height: 38px;
     border-radius: 5px;

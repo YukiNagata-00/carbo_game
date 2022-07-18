@@ -92,15 +92,15 @@ if(isset($_POST['next_btn'])){
         </div>
         
     </div>
-    <div class="ans_wrapper off">
-        <div class="ans_content">
+    <div class="ans_wrapper ">
+        <div class="ans_content off">
                 <!-- <img src="https://4.bp.blogspot.com/-CUR5NlGuXkU/UsZuCrI78dI/AAAAAAAAc20/mMqQPb9bBI0/s800/mark_maru.png" alt="マル"> -->
                 <img src="https://1.bp.blogspot.com/-eJGNGE4u8LA/UsZuCAMuehI/AAAAAAAAc2c/QQ5eBSC2Ey0/s800/mark_batsu.png" alt="バツ">
                 <p>正解は、<?= $q_carbo  ?>カーボ</p>
         </div>
     </div>
-    <div class="next_form_area off">
-            <form action="" method="POST" class = "next_form">
+    <div class="next_form_area ">
+            <form action="" method="POST" class = "next_form off">
                 <input type="submit" name = "next_btn" value="次の問題へ">
             </form>
     </div>
@@ -113,7 +113,7 @@ if(isset($_POST['next_btn'])){
         <?php endif; ?>
         <form action = "" method = "POST" id ="form" >
             <input type = "text"  name = "input_ans" class="input_ans">
-            <input type = "submit" value = "決定" name = "input_btn" class="input_btn">
+            <input type = "submit" value = "決定" name = "input_btn" id ="input_btn">
         </form>
     </div>
 
