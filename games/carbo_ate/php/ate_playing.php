@@ -19,7 +19,7 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
 
 
 
-// var_dump($result);
+var_dump($result);
 // var_dump($point);
 $q_id = $foods[$q_index]['id'];
 $q_name = $foods[$q_index]['name'];
@@ -41,7 +41,6 @@ if(isset($_POST['input_btn'])){
     }
 
     if(empty($error)){
-
         $_SESSION['input_ans'] = $input_ans;
         $_SESSION['foods'] = $foods;
         $_SESSION['result'] = $result;
@@ -56,7 +55,15 @@ if(isset($_POST['input_btn'])){
 //-------------------------------------------------------------------------
 
 
-
+//[次の問題へ]ボタンを押したら
+if(isset($_POST['next_btn'])){
+    $_SESSION['foods'] = $foods;
+    $_SESSION['result'] = $result;
+    $_SESSION['q_index'] = $q_index;
+    $_SESSION['point'] = $point;
+    header('Location: to_next.php');
+    exit();
+}
 
 
 ?>
