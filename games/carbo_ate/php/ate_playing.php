@@ -18,7 +18,6 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
 }
 
 
-
 var_dump($result);
 // var_dump($point);
 $q_id = $foods[$q_index]['id'];
@@ -67,7 +66,6 @@ if(isset($_POST['next_btn'])){
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,18 +91,18 @@ if(isset($_POST['next_btn'])){
         </div>
         
     </div>
-    <div class="ans_wrapper">
+    <div class="ans_wrapper off">
         <div class="ans_content">
                 <!-- <img src="https://4.bp.blogspot.com/-CUR5NlGuXkU/UsZuCrI78dI/AAAAAAAAc20/mMqQPb9bBI0/s800/mark_maru.png" alt="マル"> -->
                 <img src="https://1.bp.blogspot.com/-eJGNGE4u8LA/UsZuCAMuehI/AAAAAAAAc2c/QQ5eBSC2Ey0/s800/mark_batsu.png" alt="バツ">
                 <p>正解は、<?= $q_carbo  ?>カーボ</p>
         </div>
     </div>
-    <div class="next_form_area">
+    <div class="next_form_area off">
             <form action="" method="POST" class = "next_form">
                 <input type="submit" name = "next_btn" value="次の問題へ">
             </form>
-        </div>
+    </div>
     <div class="form_wrapper">
         <?php if(!empty($error)): ?> 
             <?php foreach ($error as $val): ?>
