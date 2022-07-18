@@ -2,7 +2,11 @@ let next_form =  document.getElementsByClassName('next_form');
 let ans = document.getElementsByClassName('ans_content');
 let btn = document.getElementById('input_btn');
 
+// btn.addEventListener("click", (event) =>{
+//     event.preventDefault();
+// }
 
+// );
 function removeOff(){
     if(next_form.classList.contains("off") && ans.classList.contains("off")){
         next_form.classList.remove("off");
