@@ -40,5 +40,9 @@ if($input_ans == $ans_carbo){
     
 }
 
+$_SESSION['result'] = $result;
+$_SESSION['point'] = $point;
+header('Location: ate_playing.php');
+exit();
 
 ?>
