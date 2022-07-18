@@ -1,7 +1,27 @@
-.answer{
+.answers{
     display: flex;
+    justify-content: space-around;
+}
+img{
+    width: 140px;
+    height: 140px;
+}
+.answer{
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid ghostwhite;
+}
+.ans_imges{
+    display: flex;
+    justify-content: space-around;
 }
 
-.results{
+.top_title{
     display: flex;
+    justify-content: center;
+}
+.points{
+    display: flex;
+    justify-content: center;
 }

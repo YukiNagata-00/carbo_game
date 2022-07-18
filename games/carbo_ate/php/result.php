@@ -6,8 +6,8 @@ $foods =  $_SESSION['foods'];
 $result = $_SESSION['result'];
 $point = $_SESSION['point'];
 // var_dump($foods);
-var_dump($result);
-var_dump($point);
+// var_dump($result);
+// var_dump($point);
 
 ?>
 
@@ -28,22 +28,24 @@ var_dump($point);
     <a href = "carbo_ate.php">ゲーム画面TOPへ</a>
     </header>
     <main>
-        <div class="top-title">
+        <div class="top_title">
             <h1>結果発表</h1>
         </div>
         <div class="points">
             <h2><?= $point ?>点 / 100点</h2>
         </div>
         <div class="results">
-            
+            <div class="answers">
                 <?php foreach($foods as $food): ?>
-                <div class="answer">
+                    <div class="answer">
                     <p><?php echo $food['name'].'<br>'; ?></p>
                     <img src ="<?php echo $food['image'].'<br>';?>" >
                     <p>答え <?php echo $food['carbo'];?>カーボ</p>
-                </div>
+                    </div>
+                    
                 <?php endforeach; ?>
-
+            </div>
+            <div class="ans_imges">
                 <?php foreach($result as $r): ?>
                     <?php if($r == "correct"): ?>
                         <p>⭕️</p>
@@ -51,7 +53,7 @@ var_dump($point);
                         <p>❌</p>
                     <?php endif; ?>
                 <?php endforeach; ?>
-
+            </div>
         </div>
     </main>
     <footer></footer>
