@@ -73,20 +73,20 @@ main{
     border: none;
     cursor: pointer;
 }
-.form{
+#form{
     display: flex;
     justify-content: center;
     margin-top: 20px;
     /* background-color: pink; */
 }
-.form .input_ans{
+#form.input_ans{
     display: inline;
     width: 200px;
     height: 35px;
     margin-right: 30px;
     border: 2px solid rgb(249, 242, 163);
 }
-.form .input_btn{
+#form.input_btn{
     display: inline;
     height: 38px;
     border-radius: 5px;
