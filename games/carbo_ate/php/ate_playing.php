@@ -88,7 +88,8 @@ if(isset($_POST['input_btn'])){
     </div>
     <div class="ans_wrapper">
         <div class="ans_content">
-                <img>
+                <!-- <img src="https://4.bp.blogspot.com/-CUR5NlGuXkU/UsZuCrI78dI/AAAAAAAAc20/mMqQPb9bBI0/s800/mark_maru.png" alt="マル"> -->
+                <img src="https://1.bp.blogspot.com/-eJGNGE4u8LA/UsZuCAMuehI/AAAAAAAAc2c/QQ5eBSC2Ey0/s800/mark_batsu.png" alt="バツ">
                 <p>正解は、<?= $q_carbo  ?>カーボ</p>
         </div>
     </div>
