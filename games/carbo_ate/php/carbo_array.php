@@ -18,7 +18,7 @@ $db = dbconnect();
 
 
 $foods = [];
-$records = $db->query("SELECT * FROM foods ORDER BY RAND() LIMIT 5");
+$records = $db->query("SELECT name, carbo, image FROM foods ORDER BY RAND() LIMIT 5");
 if($records){
     while($record = $records->fetch_assoc()){
         $foods[]= $record;
