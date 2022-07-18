@@ -19,14 +19,14 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSI
 
 
 
-var_dump($result);
-var_dump($point);
+// var_dump($result);
+// var_dump($point);
 $q_id = $foods[$q_index]['id'];
 $q_name = $foods[$q_index]['name'];
 $q_carbo = $foods[$q_index]['carbo'];
 $q_image = $foods[$q_index]['image'];
 
-var_dump($q_carbo);
+// var_dump($q_carbo);
 //入力値のチェック_____________________________________________________________
 $error = [];
 if(isset($_POST['input_btn'])){
@@ -35,7 +35,6 @@ if(isset($_POST['input_btn'])){
     // var_dump(strlen($input_ans));
 
     if(!$input_ans){
-        var_dump('blank');
         $error[] = '答えを入力してください。';
     }else if(strlen($input_ans) > 4 ){
         $error[] = '正しい値を入力してください。';
@@ -73,37 +72,44 @@ if(isset($_POST['input_btn'])){
     <link rel="stylesheet" href="../css/ate_playing.css">
 </head>
 <body>
-    <header>
-    <form action = "carbo_ate.php">
-        <input type = "submit" value = "戻る">
-    </form>
-    </header>
+    <header></header>
     <main>
-    <div class="top-title">
-            <h1>第<?= $q_index + 1 ?>問</h1>
-        
+
+    <div class="top">
+        <a href="carbo_ate.php">ゲーム画面TOPへ</a>
+        <h1>第 <?= $q_index + 1 ?> 問</h1>
     </div>
     <div class="img-wrapper">
-        <p><?= $q_name ?></p>
-        <img src = "<?= $q_image ?>">
+        <div class="content">
+            <p><?= $q_name ?></p>
+            <img src = "<?= $q_image ?>">
+        </div>
+        
     </div>
-    
-    <div class="form">
-        <p>カーボを入力してね<p>
-        <!-- エラー文表示 -->
+    <div class="ans_wrapper">
+        <div class="ans_content">
+                <img>
+                <p>正解は、<?= $q_carbo  ?>カーボ</p>
+        </div>
+    </div>
+    <div class="next_form_area">
+            <form action="" method="POST" class = "next_form">
+                <input type="submit" name = "next_btn" value="次の問題へ">
+            </form>
+        </div>
+    <div class="form_wrapper">
         <?php if(!empty($error)): ?> 
             <?php foreach ($error as $val): ?>
                 <p><?= $val ?></p>
             <?php unset($val); ?>
             <?php endforeach; ?>
         <?php endif; ?>
-        <form action = "#" method = "POST" >
-            <input type = "text"  name = "input_ans">
-            <input type = "submit" value = "決定" name = "input_btn">
+        <form action = "" method = "POST" class="form">
+            <input type = "text"  name = "input_ans" class="input_ans">
+            <input type = "submit" value = "決定" name = "input_btn" class="input_btn">
         </form>
-
-
     </div>
+
     </main>
     <footer></footer>
 </body>
