@@ -7,6 +7,8 @@ img{
     height: 140px;
 }
 .answer{
+    width: 180px;
+    height:300px;
     background-color: white;
     padding: 10px 20px;
     border-radius: 10px;
@@ -24,4 +26,28 @@ img{
 .points{
     display: flex;
     justify-content: center;
+}
+.links{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.to_top{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 7px;
+    background-color: rgb(243, 205, 36);
+    padding: 5px 5px;
+    margin-right: 10px;
+    color: white;
+}
+
+.again{
+    text-decoration: none;
+    border-radius: 7px;
+    display: inline-block;
+    background-color: rgb(244, 180, 62);
+    padding: 5px 5px;
+    margin-left: 10px;
+    color: white;
 }

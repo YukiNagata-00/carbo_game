@@ -24,9 +24,7 @@ $point = $_SESSION['point'];
 
 </head>
 <body>
-    <header>
-    <a href = "carbo_ate.php">ゲーム画面TOPへ</a>
-    </header>
+    <header></header>
     <main>
         <div class="top_title">
             <h1>結果発表</h1>
@@ -54,6 +52,10 @@ $point = $_SESSION['point'];
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
+        </div>
+        <div class="links">
+            <a href = "carbo_ate.php" class = "to_top">ゲーム画面TOPへ</a>
+            <a href="carbo_array.php" class = "again">もう一度遊ぶ</a>
         </div>
     </main>
     <footer></footer>
