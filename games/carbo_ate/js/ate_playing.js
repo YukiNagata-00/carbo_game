@@ -1,6 +1,6 @@
 let form =  document.getElementsByClassName('next_form');
 let ans = document.getElementsByClassName('ans_wrapper');
-let btn = document.getElementsByName('input_name')
+let btn = document.getElementById('form');
 
 btn.addEventListener("click", ()=>{
 
