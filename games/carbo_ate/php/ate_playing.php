@@ -45,7 +45,7 @@ if(isset($_POST['input_btn'])){
         $_SESSION['result'] = $result;
         $_SESSION['q_index'] = $q_index;
         $_SESSION['point'] = $point;
-        header('Location: check.php');
+        // header('Location: check.php');
         exit();
     }
 
@@ -75,6 +75,7 @@ if(isset($_POST['next_btn'])){
     <title>Document</title>
     <link rel="stylesheet" href="../../../common.css">
     <link rel="stylesheet" href="../css/ate_playing.css">
+    
 </head>
 <body>
     <header></header>
@@ -110,7 +111,7 @@ if(isset($_POST['next_btn'])){
             <?php unset($val); ?>
             <?php endforeach; ?>
         <?php endif; ?>
-        <form action = "" method = "POST" class="form">
+        <form action = "" method = "POST" id ="form" >
             <input type = "text"  name = "input_ans" class="input_ans">
             <input type = "submit" value = "決定" name = "input_btn" class="input_btn">
         </form>
@@ -118,5 +119,6 @@ if(isset($_POST['next_btn'])){
 
     </main>
     <footer></footer>
+    <script type="text/javascript" src = "../js/ate_playing.js"></script>
 </body>
 </html>
