@@ -9,13 +9,15 @@ if(isset($_SESSION['input_ans']) && isset($_SESSION['foods']) && isset($_SESSION
     $q_index =  $_SESSION['q_index'];
     $result = $_SESSION['result'];
     $point = $_SESSION['point'];
+}else{
+    var_dump("failed");
 }
 
 var_dump($input_ans);
 // var_dump($foods);
 var_dump($q_index);
 // var_dump($result);
-var_dump($point);
+// var_dump($point);
 
 
 $ans_carbo = (double)$foods[$q_index]['carbo'];
@@ -39,9 +41,10 @@ if($input_ans == $ans_carbo){
     } 
     
 }
+var_dump($q_index);
 if(!empty($result)){
     $_SESSION['foods'] = $foods;
-    $_SESSION['q_index'] = $point;
+    $_SESSION['q_index'] = $q_index;
     $_SESSION['result'] = $result;
     $_SESSION['point'] = $point;
     header('Location: ate_playing.php');

@@ -1,24 +1,32 @@
 <?php
 session_start();
 require('../../../common.php');
-
-if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSION['foods'])){
-    $user_id = $_SESSION['user_id'];
-    $user_name = $_SESSION['user_name'];
+if(empty($_SESSION['result'])){
+    if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSION['foods'])){
+        $user_id = $_SESSION['user_id'];
+        $user_name = $_SESSION['user_name'];
+        $foods =  $_SESSION['foods'];
+        $q_index =  $_SESSION['q_index'];
+        $result = $_SESSION['result'];
+        $point = $_SESSION['point'];
+    }else{
+        // var_dump("failed");
+        // header('Location: ../../login_v.php');
+        // exit();
+    }
+}else{
     $foods =  $_SESSION['foods'];
     $q_index =  $_SESSION['q_index'];
     $result = $_SESSION['result'];
     $point = $_SESSION['point'];
-}else{
-    // var_dump("failed");
-    // header('Location: ../../login_v.php');
-    // exit();
+    
 }
 
 
-var_dump($result);
+// var_dump(count($result));
+// var_dump($q_index);
 // var_dump($point);
-$q_id = $foods[$q_index]['id'];
+
 $q_name = $foods[$q_index]['name'];
 $q_carbo = $foods[$q_index]['carbo'];
 $q_image = $foods[$q_index]['image'];
@@ -43,7 +51,7 @@ if(isset($_POST['input_btn'])){
         $_SESSION['result'] = $result;
         $_SESSION['q_index'] = $q_index;
         $_SESSION['point'] = $point;
-        // header('Location: check.php');
+        header('Location: check.php');
         exit();
     }
 
@@ -90,33 +98,44 @@ if(isset($_POST['next_btn'])){
         </div>
         
     </div>
+    
     <div class="ans_wrapper ">
-        <div class="ans_content off">
-                <!-- <img src="https://4.bp.blogspot.com/-CUR5NlGuXkU/UsZuCrI78dI/AAAAAAAAc20/mMqQPb9bBI0/s800/mark_maru.png" alt="マル"> -->
-                <img src="https://1.bp.blogspot.com/-eJGNGE4u8LA/UsZuCAMuehI/AAAAAAAAc2c/QQ5eBSC2Ey0/s800/mark_batsu.png" alt="バツ">
+    <?php if($q_index + 1 == count($result)) :?>
+        <div class="ans_content ">
+            <?php if($result[$q_index] == "correct"): ?>
+                    <img src="https://4.bp.blogspot.com/-CUR5NlGuXkU/UsZuCrI78dI/AAAAAAAAc20/mMqQPb9bBI0/s800/mark_maru.png" alt="マル">
+                <?php  else :?>
+                    <img src="https://1.bp.blogspot.com/-eJGNGE4u8LA/UsZuCAMuehI/AAAAAAAAc2c/QQ5eBSC2Ey0/s800/mark_batsu.png" alt="バツ">
+                <?php endif; ?>
                 <p>正解は、<?= $q_carbo  ?>カーボ</p>
         </div>
+        <?php endif; ?>
     </div>
+    
     <div class="next_form_area ">
-            <form action="" method="POST" class = "next_form off">
+        <?php if($q_index + 1 == count($result)) :?>
+            <form action="" method="POST" class = "next_form ">
                 <input type="submit" name = "next_btn" value="次の問題へ">
             </form>
+        <?php endif; ?>
     </div>
     <div class="form_wrapper">
-        <?php if(!empty($error)): ?> 
-            <?php foreach ($error as $val): ?>
-                <p><?= $val ?></p>
-            <?php unset($val); ?>
-            <?php endforeach; ?>
+        <?php if($q_index  == count($result)) :?>
+            <?php if(!empty($error)): ?> 
+                <?php foreach ($error as $val): ?>
+                    <p><?= $val ?></p>
+                <?php unset($val); ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <form action = "" method = "POST" id ="form" >
+                <input type = "text"  name = "input_ans" class="input_ans">
+                <input type = "submit" value = "決定" name = "input_btn" id ="input_btn">
+            </form>
         <?php endif; ?>
-        <form action = "" method = "POST" id ="form" >
-            <input type = "text"  name = "input_ans" class="input_ans">
-            <input type = "submit" value = "決定" name = "input_btn" id ="input_btn">
-        </form>
     </div>
 
     </main>
     <footer></footer>
-    <script type="text/javascript" src = "../js/ate_playing.js"></script>
+    <!-- <script type="text/javascript" src = "../js/ate_playing.js"></script> -->
 </body>
 </html>
