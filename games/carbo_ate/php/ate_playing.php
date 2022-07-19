@@ -136,6 +136,5 @@ if(isset($_POST['next_btn'])){
 
     </main>
     <footer></footer>
-    <!-- <script type="text/javascript" src = "../js/ate_playing.js"></script> -->
 </body>
 </html>
