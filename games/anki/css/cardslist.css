@@ -4,6 +4,7 @@
     margin-top: 18px;
     justify-content: center;
     position: relative;
+    /* background-color: aqua; */
 }
 
 .btns{
@@ -11,6 +12,9 @@
     display: flex;
     position: absolute;
     left: 5%;
+    /* background-color: aliceblue; */
+    height: 45%;
+    width: 15%;
 }
 .btns a{
     margin-left: -39px;
@@ -19,7 +23,7 @@
     background-color: rgb(243, 205, 36);
     color: white;
     border-radius: 7px;
-    padding: 8px 8px;
+    padding: 10px 10px;
 }
 .btns input{
     border-style: none;
@@ -29,7 +33,19 @@
     border-radius: 7px;
     padding: 10px 10px;
 }
-
+.search{
+    display: flex;
+    justify-content: center;
+}
+.search_form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.form_txt{
+    width:15%;
+    margin-right: 15px;
+}
 .cards{
     /* background-color: pink; */
     width: 100%;

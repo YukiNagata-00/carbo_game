@@ -91,7 +91,12 @@ if(isset($_POST['my_cardslist'])){
             </div>
             <h1>暗記カード一覧</h1>
         </div>
-        
+        <div class="search" >
+            <form action="" class="search_form">
+                <input type="text" class="form_txt" placeholder="暗記カードを検索">
+                <input type="submit" value="検索" class="form_btn">
+            </form>
+        </div>
             <div class="cards">
                 <?php while($stmt -> fetch()):?>
                     <a href = "oneCard.php?id=<?= $id?>" class="card">
