@@ -77,7 +77,7 @@ if(isset($_POST['my_cardslist'])){
 </head>
 <body>
     <header>
-        <?= $user_name ?>さん
+        <!-- <?= $user_name ?>さん -->
         
         
     </header>
