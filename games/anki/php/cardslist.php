@@ -78,16 +78,17 @@ if(isset($_POST['my_cardslist'])){
 <body>
     <header>
         <?= $user_name ?>さん
-        <a href = "../../../top/php/index.php">
-            <input type = "button" value = "戻る">
-        </a>
-        <form action = "" method = "POST" >
-            <input type = "submit"  value = "MY暗記カード一覧" name = "my_cardslist">
-        </form>
+        
         
     </header>
     <main>
-        <div class="top-title">
+        <div class="top">
+            <div class="btns">
+                <a href = "../../../top/php/index.php" >戻る</a>
+                <form action = "" method = "POST" >
+                    <input type = "submit"  value = "MY暗記カード一覧" name = "my_cardslist">
+                </form>
+            </div>
             <h1>暗記カード一覧</h1>
         </div>
         

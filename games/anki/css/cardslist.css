@@ -1,9 +1,26 @@
-.top-title {
+.top{
+    display: flex;
     text-align: center;
-    margin-top: -24px;
+    margin-top: 18px;
+    justify-content: center;
+    position: relative;
 }
 
-
+.btns{
+    margin-top: 21px;
+    display: flex;
+    position: absolute;
+    left: 5%;
+}
+.btns a{
+    margin-left: -39px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+.btns input{
+    border-style: none;
+    cursor: pointer;
+}
 
 .cards{
     /* background-color: pink; */
