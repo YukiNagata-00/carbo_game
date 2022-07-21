@@ -36,6 +36,8 @@
 .search{
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 .search_form{
     width: 100%;
@@ -45,6 +47,15 @@
 .form_txt{
     width:15%;
     margin-right: 15px;
+    border: 2px solid rgb(254, 243, 120);
+}
+.form_btn{
+    border-style: none;
+    cursor: pointer;
+    background-color: rgb(196, 255, 119);
+    color: rgb(255, 255, 255);
+    border-radius: 7px;
+    padding: 10px 10px;
 }
 .cards{
     /* background-color: pink; */
