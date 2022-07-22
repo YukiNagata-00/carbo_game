@@ -76,10 +76,7 @@ if(isset($_POST['newCard'])){
     <link rel="stylesheet" href="../css/cardslist.css">
 </head>
 <body>
-    <header>
-        <?= $user_name ?>さん
-        
-    </header>
+    <header></header>
     <main>
         <div class="top">
             <div class="btns">
@@ -94,13 +91,20 @@ if(isset($_POST['newCard'])){
         </div>
 
         <div class="cards">
-            <?php while($stmt -> fetch()):?>
-                <a href = "my_oneCard.php?id=<?= $id?>" class="card">
-                    <p><?php echo $name;?></p>
-                    <br>
-                </a>
-                
-            <?php endwhile; ?>
+            <?php  if($user_name != "ゲスト"): ?>
+                <?php while($stmt -> fetch()):?>
+                    <a href = "my_oneCard.php?id=<?= $id?>" class="card">
+                        <p><?php echo $name;?></p>
+                        <br>
+                    </a>
+                    
+                <?php endwhile; ?>
+            <?php else: ?>
+                <div class="alert">
+                    <p>MY暗記カードは会員限定の機能です。</p>
+                    <a href="../../../signup/php/signup_v.php">新規登録はこちら</a>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="pager_area">
             <?php if ($page - 1 > 0): ?>
