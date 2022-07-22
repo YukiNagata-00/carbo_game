@@ -24,7 +24,7 @@ if(isset($_GET['action']) && $_GET['action'] === 'correction') {
 $error =[];
 // var_dump($guest);
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION["form"])) {
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["new_form"])) {
     //ユーザーネーム取得
     $form['name'] = htmlspecialchars($_POST['name'], ENT_QUOTES);
     if($form['name'] === '') {
@@ -100,7 +100,7 @@ if(isset($_POST['guest_back'])){
     <h1 class = "carbo_town">Carbo Town</h1>
             <div class="signup-wrapper">
                 <h2>新規登録</h2>
-                <form action="" method="POST" name="form">
+                <form action="" method="POST" >
                     <div class = "name_area">ユーザーネーム
                         <input type = "text" name = "name" value = "<?php echo htmlspecialchars($form['name']);?>"> 
                         <?php if(isset($error['name']) && $error['name'] === 'blank'): ?>
@@ -128,12 +128,12 @@ if(isset($_POST['guest_back'])){
                             <p class = "error">パスワードは４文字以上で入力してください。</p>
                         <?php endif; ?>
                     </div>
-                    <input type = "submit" class = "btn" value="新規登録">
+                    <input type = "submit" class = "btn" value="新規登録" name="new_form">
                 </form>
                 
                     <?php  if(isset($guest) ): ?>
                         <form action="" method="POST">
-                        <input type = "submit"  value="（ゲスト）戻る" name="guest_back">
+                            <input type = "submit"  value="（ゲスト）戻る" name="guest_back">
                         </form>
                     
                     <?php else: ?>
