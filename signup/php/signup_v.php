@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["new_form"])) {
     $form['email'] = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     if($form['email'] === '') {
         $error['email'] = 'blank';
-    }else if($form['email']){
+    }else if(!$form['email']){//?
         $error['email'] = 'incorrect';
     }
     //email duplicate 確認
