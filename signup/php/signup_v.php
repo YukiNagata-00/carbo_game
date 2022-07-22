@@ -6,18 +6,25 @@ require('../../common.php');
 if(isset($_GET['action']) && $_GET['action'] === 'correction') {
     $form = $_SESSION['form'];
 }else {
+
+
     $form = [
         'name' => '',
         'email' => '',
         'password' => ''
     ];
+
+    if(isset($_SESSION['guest_bool']) ){
+        $guest = $_SESSION['guest_bool'];
+    }
 }
 
 
+
 $error =[];
+// var_dump($guest);
 
-
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION["form"])) {
     //ユーザーネーム取得
     $form['name'] = htmlspecialchars($_POST['name'], ENT_QUOTES);
     if($form['name'] === '') {
@@ -63,6 +70,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+if(isset($_POST['guest_back'])){
+    unset($_SESSION['guest_bool']);
+    header('Location: ../../games/anki/php/my_cardslist.php');
+    exit();
+}
 
 ?>
 
@@ -88,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1 class = "carbo_town">Carbo Town</h1>
             <div class="signup-wrapper">
                 <h2>新規登録</h2>
-                <form action="" method="POST">
+                <form action="" method="POST" name="form">
                     <div class = "name_area">ユーザーネーム
                         <input type = "text" name = "name" value = "<?php echo htmlspecialchars($form['name']);?>"> 
                         <?php if(isset($error['name']) && $error['name'] === 'blank'): ?>
@@ -118,7 +130,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <input type = "submit" class = "btn" value="新規登録">
                 </form>
-                <a href = "../../login_v.php">戻る</a>
+                
+                    <?php  if(isset($guest) ): ?>
+                        <form action="" method="POST">
+                        <input type = "submit"  value="（ゲスト）戻る" name="guest_back">
+                        </form>
+                    
+                    <?php else: ?>
+                        
+                    <a href = "../../login_v.php">戻る</a>
+                    <?php endif; ?>
+                    
+                
             </div>
         
     </main>

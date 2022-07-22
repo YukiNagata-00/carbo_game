@@ -59,9 +59,8 @@ if(isset($_POST['newCard'])){
 }
 
 if(isset($_POST['to_signup'])){
-    $_SESSION['user_name'] = $user_name;
-    // $_SESSION['user_id'] = $user_id;
-    // header('Location: ../../../signup/php/signup_v.php');
+    $_SESSION['guest_bool'] = "ゲスト";
+    header('Location: ../../../signup/php/signup_v.php');
     exit();
 }
 ?>
@@ -106,8 +105,8 @@ if(isset($_POST['to_signup'])){
             <?php else: ?>
                 <div class="alert">
                     <p>MY暗記カードは会員限定の機能です。</p> 
-                    <form action="" method = "POST" name = "to_signup">
-                        <input type="submit" value="新規登録はこちら" >
+                    <form action="" method = "POST" >
+                        <input type="submit" value="新規登録はこちら" name = "to_signup">
                     </form>
                 </div>
             <?php endif; ?>
