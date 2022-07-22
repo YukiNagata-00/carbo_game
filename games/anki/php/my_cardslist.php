@@ -84,9 +84,11 @@ if(isset($_POST['newCard'])){
         <div class="top">
             <div class="btns">
                 <a href = "cardslist.php" >一覧へ戻る</a>
-                <form action = "newCard.php" method="POST" name = "newCard">
-                    <input type = "submit" value = "カードを新規登録" >
-                </form>
+                <?php if($user_name != "ゲスト"):  ?>
+                    <form action = "newCard.php" method="POST" name = "newCard">
+                        <input type = "submit" value = "カードを新規登録" >
+                    </form>
+                <?php  endif; ?>
             </div>
             <h1>MY暗記カード一覧</h1>
         </div>
