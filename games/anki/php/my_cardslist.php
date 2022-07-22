@@ -58,8 +58,12 @@ if(isset($_POST['newCard'])){
     exit();
 }
 
-
-
+if(isset($_POST['to_signup'])){
+    $_SESSION['user_name'] = $user_name;
+    // $_SESSION['user_id'] = $user_id;
+    // header('Location: ../../../signup/php/signup_v.php');
+    exit();
+}
 ?>
 
 
@@ -101,8 +105,10 @@ if(isset($_POST['newCard'])){
                 <?php endwhile; ?>
             <?php else: ?>
                 <div class="alert">
-                    <p>MY暗記カードは会員限定の機能です。</p>
-                    <a href="../../../signup/php/signup_v.php">新規登録はこちら</a>
+                    <p>MY暗記カードは会員限定の機能です。</p> 
+                    <form action="" method = "POST" name = "to_signup">
+                        <input type="submit" value="新規登録はこちら" >
+                    </form>
                 </div>
             <?php endif; ?>
         </div>
