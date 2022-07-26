@@ -116,7 +116,7 @@ if(isset($_POST['my_cardslist'])){
                     
                 </div>
                 <div class="now_page">
-                    <p><?= $page ?>/ <?= $max_page ?></p>
+                    <p><?= $page ?> / <?= $max_page ?></p>
                 </div>
                 <div class="to_next">
                     <?php if($page < $max_page) :?>
