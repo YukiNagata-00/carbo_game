@@ -86,18 +86,25 @@
 .pager_area{
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 20px;
+    /* background-color: aqua; */
+    
 }
 .to_back{
     width: 10%;
     height: 100%;
-    background-color: palegoldenrod;
-    height: 100%;
+    /* background-color: palegoldenrod; */
     display: inline-block;
+}
+.to_back_img{
+    /* display: inline-block; */
+    transform: rotateZ(-90deg);
+    /* width: ; */
+    height: 45px;
 }
 
 .now_page{
-    margin: 0 45px;
+    margin: 0 30px;
 }
 .to_next {
     width: 10%;
