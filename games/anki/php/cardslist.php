@@ -108,7 +108,6 @@ if(isset($_POST['my_cardslist'])){
             
             <div class="pager_area">
                 <div class="to_back">
-                    
                     <?php if ($page - 1 > 0): ?>
                         <a href = "?page=<?= $page - 1?>">
                             <img src="https://1.bp.blogspot.com/-Lj5NbsMLENk/UZMs1iWA56I/AAAAAAAASIo/f5HL7seBZYQ/s170/fabric_mark_triangle.png" class="to_back_img">
@@ -120,11 +119,11 @@ if(isset($_POST['my_cardslist'])){
                     <p><?= $page ?>/ <?= $max_page ?></p>
                 </div>
                 <div class="to_next">
-                    <!-- <p> -->
                     <?php if($page < $max_page) :?>
-                        <a href = "?page=<?= $page + 1?>"><?= $page + 1 ?>ページ目へ</a>
+                        <a href = "?page=<?= $page + 1?>">
+                            <img src="https://1.bp.blogspot.com/-Lj5NbsMLENk/UZMs1iWA56I/AAAAAAAASIo/f5HL7seBZYQ/s170/fabric_mark_triangle.png" class="to_next_img">
+                        </a>
                     <?php endif; ?>
-                    <!-- </p> -->
                 </div>
                 
             </div>

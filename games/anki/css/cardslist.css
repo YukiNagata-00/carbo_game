@@ -100,7 +100,8 @@
     /* display: inline-block; */
     transform: rotateZ(-90deg);
     /* width: ; */
-    height: 45px;
+    height: 40px;
+    margin-left: 15px;
 }
 
 .now_page{
@@ -109,5 +110,12 @@
 .to_next {
     width: 10%;
     height: 100%;
-    background-color: olive;
+    /* background-color: olive; */
+}
+.to_next_img{
+    /* display: inline-block; */
+    transform: rotateZ(90deg);
+    /* width: ; */
+    height: 40px;
+    margin-left: 45px;
 }
