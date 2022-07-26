@@ -24,7 +24,6 @@ $count = $counts-> fetch_assoc();
 $max_page = floor(($count['food_cnt'] - 1 )/5 + 1);
 
 
-
 //最初のデータ５件を表示ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
 
@@ -108,13 +107,24 @@ if(isset($_POST['my_cardslist'])){
             </div>
             
             <div class="pager_area">
+                <div class="to_back">
+                    <span >
+                    <?php if ($page - 1 > 0): ?>
+                        <a href = "?page=<?= $page - 1?>"><?= $page - 1?>ページ目へ</a>
+                    <?php endif; ?>
+                    </span>
+                </div>
+                <div class="now_page">
+                    <p><?= $page ?>/ <?= $max_page ?></p>
+                </div>
+                <div class="to_next">
+                    <!-- <p> -->
+                    <?php if($page < $max_page) :?>
+                        <a href = "?page=<?= $page + 1?>"><?= $page + 1 ?>ページ目へ</a>
+                    <?php endif; ?>
+                    <!-- </p> -->
+                </div>
                 
-                <?php if ($page - 1 > 0): ?>
-                    <p><a href = "?page=<?= $page - 1?>"><?= $page - 1 ?>ページ目へ</a></p>
-                <?php endif; ?>
-                <?php if($page < $max_page) :?>
-                    <p><a href = "?page=<?= $page + 1?>"><?= $page + 1 ?>ページ目へ</a></p>
-                <?php endif; ?>
             </div>
 
     
