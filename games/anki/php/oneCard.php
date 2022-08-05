@@ -45,32 +45,32 @@ $stmt -> bind_result($id, $name, $carbo, $image);
 
 </head>
 <body>
-    <header>
-        <form action = "cardslist.php">
-            <input type = "submit" value = "戻る">
-        </form>
-        <?php echo $id ?>
-        <?php echo $max_id ?>
-    </header>
+    <header></header>
     <main>
-        <div class="main-wrapper">
-            <div class="aCard"  id = "card">
-                <?php while($stmt -> fetch()):?>
-                        <p id = "foodName" ><?php echo $name;?></p>
-                        <p id = "carbo" class = "carbo off"><?php echo $carbo;?> </p>
-                        <img src = "<?php echo $image ?>" class = "foodImg" id = "img"> 
+        <div class="main-wrapper"> 
+                <div class="aCard"  id = "card">
+                    <?php while($stmt -> fetch()):?>
+                            <div class = "foodName" ><div><?php echo $name;?></div></div>
+                            <div id="carbo" class = "carbo off">
+                                <?php echo $carbo;?>
+                            </div>
+                            <img src = "<?php echo $image ?>" class = "foodImg" id = "img"> 
                     
-            </div>
-            <?php endwhile; ?>
-            <div class="btns">
-                <?php if($id != 1):?>
-                    <a href="?id=<?= $id - 1?>">前のカード</a>
-                <?php   endif; ?>
-                <?php if($id != $max_id):?>
-                    <a href = "?id=<?= $id + 1 ?>">次のカード</a>
-                <?php   endif; ?>    
-            </div>
-        </div>
+                </div>
+                <?php endwhile; ?>
+                <div class="back_btn">
+                    <a href="cardslist.php">戻る</a>
+                </div>
+                
+                <div class="btns">
+                    <?php if($id != 1):?>
+                        <a href="?id=<?= $id - 1?>">前のカード</a>
+                    <?php   endif; ?>
+                    <?php if($id != $max_id):?>
+                        <a href = "?id=<?= $id + 1 ?>">次のカード</a>
+                    <?php   endif; ?>    
+                </div>
+        </div> 
 
     </main>
     <footer></footer>
