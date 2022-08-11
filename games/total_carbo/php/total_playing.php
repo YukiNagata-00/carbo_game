@@ -2,7 +2,7 @@
 <?php
     session_start();
     require('../../../common.php');
-
+    require('food_class.php');
 
     if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
         $user_id = $_SESSION['user_id'];
@@ -18,8 +18,13 @@
             $foods[]= $record;
         }
     }
-    // print_r($foods);
+    print_r($foods);
 
+    $ex1 = new Food();
+    $ex1->setName( $foods[0]['name']);
+    $ex1->setCarb( $foods[0]['carbo']);
+    $ex1->setImg( $foods[0]['image']);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +43,9 @@
     </header>
     <main>
         <div class ="character"></div>
+        <?= $ex1->getName();?>
+        <?= $ex1->getCarb();?>
+        <?= $ex1->getImg();?>
     </main>
     <footer></footer>
 </body>
