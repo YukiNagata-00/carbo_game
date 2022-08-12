@@ -43,10 +43,12 @@
     </header>
     <main>
         <div class ="character"></div>
-        <?= $ex1->getName();?>
+        <!-- <?= $ex1->getName();?>
         <?= $ex1->getCarb();?>
-        <?= $ex1->getImg();?>
+        <?= $ex1->getImg();?> -->
+        <div class="item"></div>
     </main>
     <footer></footer>
+    <script src="../js/food_item.js"></script>
 </body>
 </html>

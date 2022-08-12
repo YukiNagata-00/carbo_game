@@ -12,3 +12,8 @@ main{
     top: 500px;
     left: 50px;
 }
+.item{
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+}
