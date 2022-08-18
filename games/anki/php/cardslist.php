@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../../../common.php');
-
+require('search.php');
 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
     $user_id = $_SESSION['user_id'];
@@ -91,9 +91,9 @@ if(isset($_POST['my_cardslist'])){
             <h1>暗記カード一覧</h1>
         </div>
         <div class="search" >
-            <form action="" class="search_form">
-                <input type="text" class="form_txt" placeholder="暗記カードを検索">
-                <input type="submit" value="検索" class="form_btn">
+            <form action="" class="search_form" method="POST">
+                <input type="text" class="form_txt" placeholder="暗記カードを検索" name="form_txt">
+                <input type="submit" value="検索" class="form_btn" name = "form_btn">
             </form>
         </div>
             <div class="cards">
