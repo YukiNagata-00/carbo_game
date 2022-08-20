@@ -52,7 +52,7 @@
 .form_btn{
     border-style: none;
     cursor: pointer;
-    background-color: rgb(196, 255, 119);
+    background-color: rgb(165, 251, 137);
     color: rgb(255, 255, 255);
     border-radius: 7px;
     padding: 10px 10px;
@@ -118,4 +118,13 @@
     /* width: ; */
     height: 40px;
     margin-left: 45px;
+}
+.clear_btn{
+    border-style: none;
+    cursor: pointer;
+    background-color: rgb(154, 250, 197);
+    color: rgb(255, 255, 255);
+    border-radius: 7px;
+    padding: 10px 10px;
+    margin-left: 10px;
 }

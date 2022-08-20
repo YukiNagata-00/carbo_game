@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../../../common.php');
-require('search.php');
+//require('search.php');
 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
     $user_id = $_SESSION['user_id'];
@@ -58,6 +58,48 @@ if(isset($_POST['my_cardslist'])){
     exit();
 }
 
+/**
+ *  検索機能
+ */
+$error = "";
+
+
+//Clear
+if(isset($_POST["clear_btn"])){
+    header("Location: " . $_SERVER['SCRIPT_NAME']);
+}
+
+if(isset($_POST["form_txt"]) && isset($_POST['form_btn']) ){
+
+    $input = htmlspecialchars($_POST["form_txt"], ENT_QUOTES);
+
+    if($input == ""){
+        $error = "blank";
+    }
+
+    if($error != "blank"){
+        $db = dbconnect();
+        $param = "%{$input}%";
+        $stmt = $db-> prepare( "SELECT id, name, carbo, image  FROM foods  WHERE name LIKE ? ORDER BY id DESC LIMIT  5" );
+        if(!$stmt) {
+            die($db -> error);
+        }
+        $stmt -> bind_param('s', $param);
+        $success = $stmt -> execute();
+            if(!$success){
+                die($db -> error);
+            }
+
+        // $stmt -> bind_result($selected_id, $selected_name, $selected_carbo, $selected_image);
+        $stmt-> bind_result($id, $name, $carbo, $image);
+        //$stmt -> fetch();
+        
+    }else{
+        echo "no2";
+    }
+}
+
+
 ?>
 
 
@@ -94,6 +136,7 @@ if(isset($_POST['my_cardslist'])){
             <form action="" class="search_form" method="POST">
                 <input type="text" class="form_txt" placeholder="暗記カードを検索" name="form_txt">
                 <input type="submit" value="検索" class="form_btn" name = "form_btn">
+                <input type="submit" value="Clear" name="clear_btn" class="clear_btn">
             </form>
         </div>
             <div class="cards">
