@@ -4,7 +4,7 @@
     /* top: 15%;
     left: 15%;  */
     
-    height: 65%;
+    height: 60%;
     width: 70%;
     margin: 0 auto; 
     border-radius: 10px;
@@ -51,20 +51,28 @@ main{
     
     margin-top: -1px;
 }
-/* .btns.back a{
-    color: black;
-    height: 15%;
-} */
+
 .btns{
     top:40px;
     height: 5%;
     width: 21%;
 }
 
-
-.onecard_btns a.next_btn { 
-    color: black;
+.onecard_btns{
+    text-align:center;
+    margin:0 auto;
+    padding-top: 50px;
 }
 .onecard_btns a.next_btn { 
+    padding-top: 50px;
+    /* margin: 0 auto;
+    color: black; */
+    padding-left: 50px;
     color: black;
+}
+.onecard_btns a.back_btn { 
+    /* margin: 0 auto;
+    color: black; */
+    color: black;
+    padding-right: 50px;
 }
