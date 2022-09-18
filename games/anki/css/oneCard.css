@@ -51,6 +51,16 @@ main{
     
     margin-top: -1px;
 }
+/* .btns.back a{
+    color: black;
+    height: 15%;
+} */
+.btns{
+    top:40px;
+    height: 5%;
+    width: 21%;
+}
+
 
 .onecard_btns a.next_btn { 
     color: black;

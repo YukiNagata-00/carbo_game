@@ -38,7 +38,7 @@ $stmt -> bind_result($id, $name, $carbo, $image);
     </header>
     <main>
         <div class="main-wrapper"> 
-        <div class="back_btn">
+                <div class="btns">
                     <a href="cardslist.php">戻る</a>
                 </div>
                 <div class="aCard"  id = "card">
