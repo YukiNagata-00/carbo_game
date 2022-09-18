@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../../../common.php');
-
+include('../../../parts/_header.php');
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if(!$id){
     header('Location: cardslist.php');
@@ -32,22 +32,15 @@ $stmt -> bind_result($id, $name, $carbo, $image);
 
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../../common.css">
     <link rel="stylesheet" href="../css/oneCard.css">
-
-</head>
-<body>
-    <header></header>
+    <body>
+    <header>
+    </header>
     <main>
         <div class="main-wrapper"> 
+        <div class="back_btn">
+                    <a href="cardslist.php">戻る</a>
+                </div>
                 <div class="aCard"  id = "card">
                     <?php while($stmt -> fetch()):?>
                             <div class = "foodName" ><div><?php echo $name;?></div></div>
@@ -58,22 +51,19 @@ $stmt -> bind_result($id, $name, $carbo, $image);
                     
                 </div>
                 <?php endwhile; ?>
-                <div class="back_btn">
-                    <a href="cardslist.php">戻る</a>
-                </div>
                 
-                <div class="btns">
+                <div class="onecard_btns">
                     <?php if($id != 1):?>
-                        <a href="?id=<?= $id - 1?>">前のカード</a>
+                        <a href="?id=<?= $id - 1?>" class="back_btn">前のカード</a>
                     <?php   endif; ?>
                     <?php if($id != $max_id):?>
-                        <a href = "?id=<?= $id + 1 ?>">次のカード</a>
+                        <a href = "?id=<?= $id + 1 ?>" class="next_btn">次のカード</a>
                     <?php   endif; ?>    
                 </div>
         </div> 
 
     </main>
-    <footer></footer>
-    <script type="text/javascript" src = "../js/oneCard.js"></script>
-</body>
-</html>
+<script type="text/javascript" src = "../js/oneCard.js"></script>
+<?php
+
+include('../../../parts/_footer.php');

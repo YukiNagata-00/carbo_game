@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         die($db -> error);
     }
 
-    unset($_SESSION['form']);
+    //unset($_SESSION['form']);
     header('Location: signupDone.php');
 }
 
@@ -46,10 +46,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Document</title>
     <link rel="stylesheet" href="../../common.css">
     <link rel="stylesheet" href="../css/check.css">
+    <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
     <header></header>
     <main>
+    <h1 class = "carbo_town">Carbo Town</h1>
     <div class="main-wrapper">
             <div class="signup-wrapper">
                 <h2>新規登録</h2>

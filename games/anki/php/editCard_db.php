@@ -13,17 +13,8 @@ if(isset( $_SESSION['form'])){
     exit();
 }
 
-
-
-
-
-// var_dump($form);
-// var_dump($id);
-// var_dump($name);
 if($form['image'] === ""){
-    // echo "noimage";
     $form['image'] = '../../game_images/no_image_square.jpg';
-    // var_dump($form);
 }
 //DBへ
 $db = dbconnect();

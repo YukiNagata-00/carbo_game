@@ -122,7 +122,7 @@ if(isset($_POST['guest_back'])){
                     <div class = "password_area">パスワード
                         <input type = "password" name = "password" value = "<?php echo htmlspecialchars($form['password']); ?>">
                         <?php if(isset($error['password']) && $error['password'] === 'blank'): ?>
-                            <p class = "error">ユーザーネームを入力してください。</p>
+                            <p class = "error">パスワードを入力してください。</p>
                         <?php endif; ?>
                         <?php if(isset($error['password']) && $error['password']=== 'short'): ?>
                             <p class = "error">パスワードは４文字以上で入力してください。</p>

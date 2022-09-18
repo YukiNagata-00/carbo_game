@@ -1,15 +1,3 @@
-<?php
-
-session_start();
-require('../../common.php');
-
-$form = $_SESSION['form'];
-
-echo $form['name'];
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +5,5 @@ echo $form['name'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    登録完了
-    <a href = "../../login_v.php">ログインする</a>
-</body>
-</html>
+    <link rel="stylesheet" href="../../../common.css">
+    <link rel="stylesheet" href="../css/cardslist.css">

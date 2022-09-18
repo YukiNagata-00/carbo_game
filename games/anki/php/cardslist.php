@@ -1,7 +1,8 @@
 <?php
 session_start();
 require('../../../common.php');
-//require('search.php');
+include('../../../parts/_header.php');
+
 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
     $user_id = $_SESSION['user_id'];
@@ -64,11 +65,16 @@ if(isset($_POST['my_cardslist'])){
 $error = "";
 
 
-//Clear
+/**
+ * クリアボタン
+ */
 if(isset($_POST["clear_btn"])){
     header("Location: " . $_SERVER['SCRIPT_NAME']);
 }
 
+/**
+ * 検索ボタン押下時
+ */
 if(isset($_POST["form_txt"]) && isset($_POST['form_btn']) ){
 
     $input = htmlspecialchars($_POST["form_txt"], ENT_QUOTES);
@@ -89,40 +95,17 @@ if(isset($_POST["form_txt"]) && isset($_POST['form_btn']) ){
             if(!$success){
                 die($db -> error);
             }
-
-        // $stmt -> bind_result($selected_id, $selected_name, $selected_carbo, $selected_image);
         $stmt-> bind_result($id, $name, $carbo, $image);
-        //$stmt -> fetch();
-        
-    }else{
-        echo "no2";
     }
 }
 
 
 ?>
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../../common.css">
-    <link rel="stylesheet" href="../css/cardslist.css">
 </head>
 <body>
     <header>
-        <!-- <?= $user_name ?>さん -->
-        
-        
     </header>
-    <main>
+    <main> 
         <div class="top">
             <div class="btns">
                 <a href = "../../../top/php/index.php" >戻る</a>
@@ -174,8 +157,5 @@ if(isset($_POST["form_txt"]) && isset($_POST['form_btn']) ){
     
 
     </main>
-    <footer>
-
-    </footer>
-</body>
-</html>
+<?php
+include('../../../parts/_footer.php');
