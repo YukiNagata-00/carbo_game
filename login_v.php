@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('common.php');
-
+include('parts/_head.php');
 $form = [
     'email' => '',
     'password' => '',
@@ -46,8 +46,6 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
             exit();
         }else {
             $error['login'] = 'failed';
-            // var_dump('failed');
-            // var_dump($form['password'], $hashed_password);
         }
 
         
@@ -66,13 +64,6 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="./login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,6 +122,6 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
             </div>
         
     </main>
-    <footer></footer>
-</body>
-</html>
+<?php
+
+include('parts/_footer.php');

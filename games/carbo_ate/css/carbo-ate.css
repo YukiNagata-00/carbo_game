@@ -2,6 +2,22 @@
     text-align: center;
     margin-top: -24px;
 }
+.top{
+    display: flex;
+    text-align: center;
+    margin-top: 18px;
+    justify-content: center;
+    position: relative;
+}
+.top .btns a{
+    /* margin-left: 39px; */
+    margin-right: 10px;
+    text-decoration: none;
+    background-color: rgb(243, 205, 36);
+    color: black;
+    border-radius: 7px;
+    padding: 10px 10px;
+}
 .main-wrapper{
     background-color: aliceblue;
     width: 100%;

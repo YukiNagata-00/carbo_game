@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../../../common.php');
-include('../../../parts/_header.php');
+include('../../../parts/_head.php');
 
 
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
@@ -102,10 +102,17 @@ if(isset($_POST["form_txt"]) && isset($_POST['form_btn']) ){
 
 ?>
 </head>
-<body>
-    <header>
-    </header>
-    <main> 
+<body class="drawer drawer--left">
+
+
+<?php
+include('../../../parts/_header.php');
+?>
+
+<header role="banner">
+
+</header>
+    <main role="main"> 
         <div class="top">
             <div class="btns">
                 <a href = "../../../top/php/index.php" >戻る</a>
@@ -155,7 +162,7 @@ if(isset($_POST["form_txt"]) && isset($_POST['form_btn']) ){
             </div>
 
     
-
+            <script type="text/javascript" src = "../../../parts/_drawer.js"></script>
     </main>
 <?php
 include('../../../parts/_footer.php');

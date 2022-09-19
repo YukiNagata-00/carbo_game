@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../../../common.php');
-include('../../../parts/_header.php');
+include('../../../parts/_head.php');
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if(!$id){
     header('Location: cardslist.php');

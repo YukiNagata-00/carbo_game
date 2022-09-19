@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../../../common.php');
-
+include('../../../parts/_head.php');
 if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
     $user_id = $_SESSION['user_id'];
     $user_name = $_SESSION['user_name'];
@@ -23,24 +23,19 @@ if(isset($_POST["game_start"])){
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トータルカーボ当てゲームトップ</title>
-    <link rel="stylesheet" href="../../../common.css">
-    <link rel="stylesheet" href="../css/total-carbo.css">
-<body>
-    <header>
-    <?php echo htmlspecialchars($user_id) ?> 
-    <?php echo htmlspecialchars($user_name)?>
-    <form action = "../../../top/php/index.php">
-        <input type = "submit" value = "戻る">
-    </form>
-    </header>
-    <main>
+<link rel="stylesheet" href="../css/total-carbo.css">
+<body class="drawer drawer--left">
+
+
+<?php
+include('../../../parts/_header.php');
+?>
+
+<header role="banner">
+
+</header>
+
+    <main role="main">
         <div class="top-title">
                     <h1>トータルカーボ当てゲーム</h1>
                     <p>指示されたカーボを目指して食べ物を集めよう！
@@ -72,7 +67,8 @@ if(isset($_POST["game_start"])){
                 <input type = "submit" class = "start-btn"  value = "スタート" name = "game_start">
             </form>
         </div>
+        <script type="text/javascript" src = "../../../parts/_drawer.js"></script>
     </main>
-<footer></footer>
-</body>
-</html>
+    <?php
+
+include('../../../parts/_footer.php');

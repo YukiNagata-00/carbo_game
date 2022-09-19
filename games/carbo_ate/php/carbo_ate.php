@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('../../../common.php');
-
+include('../../../parts/_head.php');
 
 if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
     $user_id = $_SESSION['user_id'];
@@ -22,28 +22,35 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カーボ当てゲームトップ</title>
-    <link rel="stylesheet" href="../../../common.css">
     <link rel="stylesheet" href="../css/carbo-ate.css">
 </head>
-<body>
-    <header>
-    <form action = "../../../top/php/index.php">
-        <input type = "submit" value = "戻る">
-    </form>
-    </header>
-    <main>
-        <div class="top-title">
+<body class="drawer drawer--left">
+<?php
+include('../../../parts/_header.php');
+?>
+
+<header role="banner">
+
+</header>
+    <main role="main">
+    <div class="top">
+            <div class="btns">
+                <a href = "../../../top/php/index.php" >戻る</a>
+            </div>
+            <div class="top-title">
+            <h1>カーボ当てゲーム</h1>
+            <p>食べ物のカーボはいくつかを答えよう！
+                ここでは糖質量 10g = 1カーボとします。</p>
+            </div>
+        </div>
+        <!-- <div class="top-title">
+            <div class="btns">
+            <a href = "../../../top/php/index.php" >戻る</a>
+            </div>
                 <h1>カーボ当てゲーム</h1>
                 <p>食べ物のカーボはいくつかを答えよう！
                 ここでは糖質量 10g = 1カーボとします。</p>
-        </div>
+        </div> -->
         <div class="main-wrapper">
             <div class="game-example"></div>
             <div class="ranking">
@@ -70,9 +77,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <input type = "submit" class = "start-btn"  value = "スタート">
             </form>
         </div>
-    
+        <script type="text/javascript" src = "../../../parts/_drawer.js"></script>
     </main>
-    <footer><footer>
-    
-</body>
-</html>
+<?php
+include('../../../parts/_footer.php');
