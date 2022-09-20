@@ -43,33 +43,25 @@ include('../../../parts/_header.php');
                 ここでは糖質量 10g = 1カーボとします。</p>
             </div>
         </div>
-        <!-- <div class="top-title">
-            <div class="btns">
-            <a href = "../../../top/php/index.php" >戻る</a>
-            </div>
-                <h1>カーボ当てゲーム</h1>
-                <p>食べ物のカーボはいくつかを答えよう！
-                ここでは糖質量 10g = 1カーボとします。</p>
-        </div> -->
         <div class="main-wrapper">
-            <div class="game-example"></div>
-            <div class="ranking">
-                <h2>ランキング</h2>
-                <div class="prize gold">
-                    <img>
-                    <p>name</p>
-                    <p>score</p>
-                </div>
-                <div class="prize silver">
-                    <img>
-                    <p>name</p>
-                    <p>score</p>
-                </div>
-                <div class="prize blond">
-                    <img>
-                    <p>name</p>
-                    <p>score</p>
-                </div>
+            <div class="container">
+                <ul class="menu">
+                <li><a href="#" class="item active " data-id="fund">基本編</a></li>
+                <li><a href="#" class="item " data-id="adv" >応用編</a></li>
+                </ul>
+
+                <section class="content active " id="fund">
+                <div class="game-example"></div>
+                基本編
+                サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。
+                </section>
+
+                <section class="content " id="adv">
+                <div class="game-example"></div>
+                応用編
+                サービス内容。サービス内容。
+                </section>
+
             </div>
         </div>
         <div class="btn-wrapper">
@@ -78,6 +70,7 @@ include('../../../parts/_header.php');
             </form>
         </div>
         <script type="text/javascript" src = "../../../parts/_drawer.js"></script>
+        <script type="text/javascript" src = "../../../parts/_tab.js"></script>
     </main>
 <?php
 include('../../../parts/_footer.php');
