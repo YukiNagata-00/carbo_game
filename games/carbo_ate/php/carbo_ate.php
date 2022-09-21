@@ -14,6 +14,13 @@ if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $_SESSION['user_id'] = $user_id;
     $_SESSION['user_name'] = $user_name;
+
+    if($_POST['fund']){
+        $_SESSION['type'] = 'fund';
+    }else if($_POST['adv']){
+        $_SESSION['type'] = 'adv';
+    }
+
     header('Location: carbo_array.php');
     exit();
 }
@@ -51,20 +58,25 @@ include('../../../parts/_header.php');
                 <div class="game-example"></div>
                 基本編
                 サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。
+                <div class="btn-wrapper">
+                    <form action= "" method = "POST">
+                        <input type = "submit" class = "fund-start-btn"   name="fund" value = "基本編スタート">
+                    </form>
+                </div>
                 </section>
 
                 <section class="content " id="adv">
                 <div class="game-example"></div>
                 応用編
                 サービス内容。サービス内容。
-                </section>
 
+                <div class="btn-wrapper">
+                    <form action= "" method = "POST">
+                        <input type = "submit" class = "adv-start-btn"  name="adv" value = "応用編スタート">
+                    </form>
+                </div>
+                </section>
             </div>
-        </div>
-        <div class="btn-wrapper">
-            <form action= "" method = "POST">
-                <input type = "submit" class = "start-btn"  value = "スタート">
-            </form>
         </div>
         <script type="text/javascript" src = "../../../parts/_drawer.js"></script>
         <script type="text/javascript" src = "../../../parts/_tab.js"></script>
