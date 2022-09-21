@@ -9,6 +9,7 @@ if(empty($_SESSION['result'])){
         $q_index =  $_SESSION['q_index'];
         $result = $_SESSION['result'];
         $point = $_SESSION['point'];
+        $type = $_SESSION['type'];
     }else{
         // var_dump("failed");
         // header('Location: ../../login_v.php');
@@ -31,7 +32,35 @@ $q_name = $foods[$q_index]['name'];
 $q_carbo = $foods[$q_index]['carbo'];
 $q_image = $foods[$q_index]['image'];
 
-// var_dump($q_carbo);
+var_dump($q_carbo);
+
+function getDummyAns1($q_carbo){
+    $dummy1 = round(round(mt_rand() / mt_getrandmax(), 2) * $q_carbo, 1);
+    if($dummy1 <= 0 || $dummy1 === $q_carbo){
+        getDummyAns1($q_carbo);
+        echo "dup1";
+        return  getDummyAns1($q_carbo);
+    }else{
+        return $dummy1;
+    }
+}
+function getDummyAns2($q_carbo, $dummy_ans1){
+    $dummy2 = round(round(mt_rand() / mt_getrandmax(), 2) * $q_carbo *rand(1,9) + $q_carbo / rand(1, 1.5), 1);
+    if($dummy2 <= 0 || $dummy2 === $dummy_ans1){
+        getDummyAns2($q_carbo, $dummy_ans1);
+    }else{
+        return $dummy2;
+    }
+}
+var_dump( $dummy_ans1 = getDummyAns1($q_carbo). '<br>');
+echo  $dummy_ans2 = getDummyAns2($q_carbo, $dummy_ans1);
+
+if($type === 'fund'){
+
+}
+// echo $_SESSION['type'];
+
+$choices = [$q_carbo,  $dummy_ans1,  $dummy_ans2];
 //入力値のチェック_____________________________________________________________
 $error = [];
 if(isset($_POST['input_btn'])){
