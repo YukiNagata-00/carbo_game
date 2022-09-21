@@ -127,7 +127,7 @@ if(isset($_POST['next_btn'])){
                 <?php unset($val); ?>
                 <?php endforeach; ?>
             <?php endif; ?>
-            <form action = "" method = "POST" id ="form" >
+            <form action = "" method = "POST" id ="form"  autocomplete="off">
                 <input type = "text"  name = "input_ans" class="input_ans">
                 <input type = "submit" value = "決定" name = "input_btn" id ="input_btn">
             </form>
