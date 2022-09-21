@@ -1,4 +1,8 @@
+<?php
+$top_url = "/carbo_project/top/php/index.php";
 
+
+?>
 <!-- ハンバーガーボタン -->
 <button type="button" class="drawer-toggle drawer-hamburger">
     <span class="sr-only">toggle navigation</span>
@@ -8,7 +12,7 @@
 <nav class="drawer-nav" role="navigation">
     <ul class="drawer-menu">
     <li><a class="drawer-brand" href="#">Menu</a></li>
-    <li><a class="drawer-menu-item" href="#">トップページ</a></li>
+    <li><a class="drawer-menu-item" href="<?= $top_url ?>">トップページ</a></li>
     <li><a class="drawer-menu-item" href="#">プロフィール</a></li>
     <li><a class="drawer-menu-item" href="logout.php">ログアウト</a></li>
     </ul>

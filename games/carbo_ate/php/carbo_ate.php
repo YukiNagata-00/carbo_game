@@ -17,9 +17,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     header('Location: carbo_array.php');
     exit();
 }
-
-
-
 ?>
 
     <link rel="stylesheet" href="../css/carbo-ate.css">
