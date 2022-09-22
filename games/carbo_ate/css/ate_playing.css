@@ -101,3 +101,8 @@ main{
     border: none;
     cursor: pointer;
 }
+
+.choice{
+    background-color: white;
+    cursor: pointer;
+}

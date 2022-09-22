@@ -36,9 +36,7 @@ var_dump($q_carbo);
 
 function getDummyAns1($q_carbo){
     $dummy1 = round(round(mt_rand() / mt_getrandmax(), 2) * $q_carbo, 1);
-    if($dummy1 <= 0 || $dummy1 === $q_carbo){
-        getDummyAns1($q_carbo);
-        echo "dup1";
+    if($dummy1 <= 0 ||  abs($dummy1 - $q_carbo) <= 1){
         return  getDummyAns1($q_carbo);
     }else{
         return $dummy1;
@@ -46,21 +44,24 @@ function getDummyAns1($q_carbo){
 }
 function getDummyAns2($q_carbo, $dummy_ans1){
     $dummy2 = round(round(mt_rand() / mt_getrandmax(), 2) * $q_carbo *rand(1,9) + $q_carbo / rand(1, 1.5), 1);
-    if($dummy2 <= 0 || $dummy2 === $dummy_ans1){
-        getDummyAns2($q_carbo, $dummy_ans1);
+    if($dummy2 <= 0 ||  abs($dummy2 - $q_carbo) <= 1){
+        return getDummyAns2($q_carbo, $dummy_ans1);
     }else{
         return $dummy2;
     }
 }
-var_dump( $dummy_ans1 = getDummyAns1($q_carbo). '<br>');
-echo  $dummy_ans2 = getDummyAns2($q_carbo, $dummy_ans1);
+
 
 if($type === 'fund'){
+    $dummy_ans1 = getDummyAns1($q_carbo);
+    $dummy_ans2 = getDummyAns2($q_carbo, $dummy_ans1);
+    $choices = [$q_carbo,  $dummy_ans1,  $dummy_ans2];
+    shuffle($choices);
+    print_r($choices);
 
 }
-// echo $_SESSION['type'];
 
-$choices = [$q_carbo,  $dummy_ans1,  $dummy_ans2];
+
 //入力値のチェック_____________________________________________________________
 $error = [];
 if(isset($_POST['input_btn'])){
@@ -88,6 +89,14 @@ if(isset($_POST['input_btn'])){
 }
 //-------------------------------------------------------------------------
 
+if(isset($_POST[('choice_submit')])){
+    // echo 'ccc';
+    $selectedChoice = filter_input(INPUT_POST, 'choice');
+    var_dump($selectedChoice) ;
+    $_SESSION['selectedChoice'] = $selectedChoice ;
+    header('Location: check.php');
+    exit();
+}
 
 //[次の問題へ]ボタンを押したら
 if(isset($_POST['next_btn'])){
@@ -149,21 +158,36 @@ if(isset($_POST['next_btn'])){
         <?php endif; ?>
     </div>
     <div class="form_wrapper">
-        <?php if($q_index  == count($result)) :?>
-            <?php if(!empty($error)): ?> 
-                <?php foreach ($error as $val): ?>
-                    <p><?= $val ?></p>
-                <?php unset($val); ?>
-                <?php endforeach; ?>
+        <?php if($type === 'adv') :?>
+            <?php if($q_index  == count($result)) :?>
+                <?php if(!empty($error)): ?> 
+                    <?php foreach ($error as $val): ?>
+                        <p><?= $val ?></p>
+                    <?php unset($val); ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <form action = "" method = "POST" id ="form"  autocomplete="off">
+                    <input type = "text"  name = "input_ans" class="input_ans">
+                    <input type = "submit" value = "決定" name = "input_btn" id ="input_btn">
+                </form>
             <?php endif; ?>
-            <form action = "" method = "POST" id ="form"  autocomplete="off">
-                <input type = "text"  name = "input_ans" class="input_ans">
-                <input type = "submit" value = "決定" name = "input_btn" id ="input_btn">
-            </form>
-        <?php endif; ?>
+        <?php else :?>
+            <div class="choices_wrapper">
+                <?php  foreach($choices as $choice) :?>
+                    <form action="" method="POST" >
+                        <div class="choice">
+                            <input type="hidden" name = "choice" value="<?= $choice ?>"> <?= $choice ?>
+                </div>
+                        <input type="hidden" value="<?= $choice ?>"  name = "choice_submit" >
+                    </form>
+                <?php  endforeach; ?>
+            </div>
+        <?php endif ;?>
+
     </div>
 
     </main>
     <footer></footer>
+    <script src="../js/choice.js" ></script>
 </body>
 </html>

@@ -26,7 +26,6 @@ function getFood($db){
 }
 }
 
-echo $type;
 
 $foods = getFood($db);
 
@@ -49,6 +48,6 @@ if(isset($foods)){
     $_SESSION['q_index'] = $q_index;
     $_SESSION['result'] = $result;
     $_SESSION['point'] = $point;
-    // header('Location: ate_playing.php');
+    header('Location: ate_playing.php');
 }
 ?>

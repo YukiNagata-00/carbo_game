@@ -2,8 +2,8 @@
 session_start();
 require('../../../common.php');
 
-if(isset($_SESSION['input_ans']) && isset($_SESSION['foods']) && isset($_SESSION['result']) && isset($_SESSION['q_index']) ){
-    
+if(isset($_SESSION['input_ans']) || isset($_SESSION['selectedChoice']) ){
+    $selectedChoice =$_SESSION['selectedChoice'];
     $input_ans = $_SESSION['input_ans'];
     $foods =  $_SESSION['foods'];
     $q_index =  $_SESSION['q_index'];
@@ -13,14 +13,23 @@ if(isset($_SESSION['input_ans']) && isset($_SESSION['foods']) && isset($_SESSION
     var_dump("failed");
 }
 
-var_dump($input_ans);
-// var_dump($foods);
-var_dump($q_index);
+// var_dump($input_ans);
+var_dump((double)$selectedChoice);
+// var_dump($q_index);
 // var_dump($result);
 // var_dump($point);
 
 
 $ans_carbo = (double)$foods[$q_index]['carbo'];
+
+var_dump($ans_carbo);
+
+function checkAns($input, $ans_carbo){
+    if($input === $ans_carbo){
+        $result[] = "correct";
+        $point += 10;
+    }
+}
 
 
 if($input_ans == $ans_carbo){
@@ -47,7 +56,7 @@ if(!empty($result)){
     $_SESSION['q_index'] = $q_index;
     $_SESSION['result'] = $result;
     $_SESSION['point'] = $point;
-    header('Location: ate_playing.php');
+    // header('Location: ate_playing.php');
     exit();
 }
 
