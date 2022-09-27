@@ -11,23 +11,6 @@ if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])){
     header('Location: ../../login_v.php');
     exit();
 }
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-
-        $_SESSION['user_id'] = $user_id;
-        $_SESSION['user_name'] = $user_name;
-
-    if($_POST["ate_game"]){
-        
-        header('Location: ../../games/carbo_ate/php/carbo_ate.php ');
-        exit();
-    }elseif($_POST["total_game"]){
-        header('Location: ../../games/total_carbo/php/total_carbo.php');
-        exit();
-    }elseif($_POST["anki"]){
-        header('Location: ../../games/anki/php/cardslist.php');
-        exit();
-    }
-}
 
 
 
@@ -60,36 +43,22 @@ include('../../parts/_header.php');
         </div>
         
         <div class="items-area">
-            
-            <div class="item flash-game">
-                
+            <a href=" ../../games/carbo_ate/php/carbo_ate.php" class="item flash-game">
                 <p>カーボ当てゲーム</p>
                 
                 <img src = "http://4.bp.blogspot.com/-D5kKrMBiFxM/VMIt1KJ0L4I/AAAAAAAAqy8/rTn6p9VyVFY/s180-c/onigiri_maru.png" alt = "おにぎり">
                 <p>食べ物のカーボはいくつかを答えるクイズです。</p>
-                <form action = "" method = "POST">
-                    <input type = "submit" name = "ate_game" value = "遊ぶ！" class = "btn">
-                </form> 
-            </div>
-            <div class="item total-game">
+            </a>
+            <a href="../../games/total_carbo/php/total_carbo.php" class="item total-game">
                 <p>トータルカーボ当てゲーム</p>
                 <img src = "http://1.bp.blogspot.com/--Z0FQl8l9sU/UbVvQV3OinI/AAAAAAAAUtE/XpDlhdqZxaY/s180-c/fruits_basket.png" alt = "フルーツバスケット">
                 <p>指定されたトータルカーボを目指して食べ物を集めましょう</p>
-                <form action = "" method = "POST">
-                <input type = "submit" name = "total_game" value = "遊ぶ！" class = "btn">
-                </form> 
-            </div>
-            <div class="item anki">
+            </a>
+            <a href="../../games/anki/php/cardslist.php" class="item anki">
                 <p>カーボ暗記帳</p>
                 <img src = "https://2.bp.blogspot.com/-MatVFm3S0Fk/VXOTfp034qI/AAAAAAAAuAU/Pt3x4nQOY-I/s400/anki_card.png" alt = "暗記カード">
                 <p>食べ物のカーボを暗記カードで覚えましょう</p>
-                <form action = "" method = "POST">
-                <input type = "submit" name = "anki" value = "遊ぶ！" class = "btn">
-                </form> 
-            </div>
-
-            
-            
+            </a>     
         </div>
         <script type="text/javascript" src = "../../index.js"></script>
         <script type="text/javascript" src = "../../parts/_drawer.js"></script>

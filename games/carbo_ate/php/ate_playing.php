@@ -81,6 +81,7 @@ if(isset($_POST['input_btn'])){
         $_SESSION['result'] = $result;
         $_SESSION['q_index'] = $q_index;
         $_SESSION['point'] = $point;
+        $_SESSION['type'] = $type;
         header('Location: check.php');
         exit();
     }
@@ -93,7 +94,10 @@ if(isset($_POST[('choice_submit')])){
     // echo 'ccc';
     $selectedChoice = filter_input(INPUT_POST, 'choice');
     var_dump($selectedChoice) ;
+    $_SESSION['q_index'] = $q_index;
+    $_SESSION['result'] = $result;
     $_SESSION['selectedChoice'] = $selectedChoice ;
+    $_SESSION['type'] = $type;
     header('Location: check.php');
     exit();
 }
