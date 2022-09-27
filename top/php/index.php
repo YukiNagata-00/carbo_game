@@ -43,7 +43,7 @@ include('../../parts/_header.php');
         </div>
         
         <div class="items-area">
-            <a href=" ../../games/carbo_ate/php/carbo_ate.php" class="item flash-game">
+            <a href=" ../../games/carbo_ate/php/carbo_ate.php" class="item ate-game">
                 <p>カーボ当てゲーム</p>
                 
                 <img src = "http://4.bp.blogspot.com/-D5kKrMBiFxM/VMIt1KJ0L4I/AAAAAAAAqy8/rTn6p9VyVFY/s180-c/onigiri_maru.png" alt = "おにぎり">

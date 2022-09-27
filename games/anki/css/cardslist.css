@@ -33,6 +33,12 @@
     border-radius: 7px;
     padding: 10px 10px;
 }
+.btns input:hover{
+    opacity: 0.7;
+}
+.btns a:hover{
+    opacity: 0.7;
+}
 .search{
     display: flex;
     justify-content: center;
@@ -78,6 +84,9 @@
     box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
     
 
+}
+.card:hover{
+    opacity: 0.8;
 }
 .card p{
     padding: 17px 17px;

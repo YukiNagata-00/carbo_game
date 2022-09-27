@@ -28,6 +28,10 @@ main{
     text-decoration: none;
     color: black;
 }
+.item:hover{
+    box-shadow: 0 5px 10px rgb(109, 109, 109);
+    transform: translate(0, -5px);
+}
 
 .btn{
     width: 30%;
