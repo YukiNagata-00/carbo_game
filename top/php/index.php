@@ -44,19 +44,24 @@ include('../../parts/_header.php');
         
         <div class="items-area">
             <a href=" ../../games/carbo_ate/php/carbo_ate.php" class="item ate-game">
-                <p>カーボ当てゲーム</p>
-                
-                <img src = "http://4.bp.blogspot.com/-D5kKrMBiFxM/VMIt1KJ0L4I/AAAAAAAAqy8/rTn6p9VyVFY/s180-c/onigiri_maru.png" alt = "おにぎり">
+                <div class="item_top">
+                    <p class="item_title">カーボ当てゲーム</p>
+                    <img src = "http://4.bp.blogspot.com/-D5kKrMBiFxM/VMIt1KJ0L4I/AAAAAAAAqy8/rTn6p9VyVFY/s180-c/onigiri_maru.png" alt = "おにぎり">
+                </div>
                 <p>食べ物のカーボはいくつかを答えるクイズです。</p>
             </a>
             <a href="../../games/total_carbo/php/total_carbo.php" class="item total-game">
-                <p>トータルカーボ当てゲーム</p>
-                <img src = "http://1.bp.blogspot.com/--Z0FQl8l9sU/UbVvQV3OinI/AAAAAAAAUtE/XpDlhdqZxaY/s180-c/fruits_basket.png" alt = "フルーツバスケット">
+                <div class="item_top">
+                    <p class="item_title">トータルカーボ当てゲーム</p>
+                    <img src = "http://1.bp.blogspot.com/--Z0FQl8l9sU/UbVvQV3OinI/AAAAAAAAUtE/XpDlhdqZxaY/s180-c/fruits_basket.png" alt = "フルーツバスケット">
+                </div>
                 <p>指定されたトータルカーボを目指して食べ物を集めましょう</p>
             </a>
             <a href="../../games/anki/php/cardslist.php" class="item anki">
-                <p>カーボ暗記帳</p>
-                <img src = "https://2.bp.blogspot.com/-MatVFm3S0Fk/VXOTfp034qI/AAAAAAAAuAU/Pt3x4nQOY-I/s400/anki_card.png" alt = "暗記カード">
+                <div class="item_top">
+                    <p class="item_title"> カーボ暗記帳</p>
+                    <img src = "https://2.bp.blogspot.com/-MatVFm3S0Fk/VXOTfp034qI/AAAAAAAAuAU/Pt3x4nQOY-I/s400/anki_card.png" alt = "暗記カード">
+                </div>
                 <p>食べ物のカーボを暗記カードで覚えましょう</p>
             </a>     
         </div>
