@@ -38,7 +38,7 @@ $point = $_SESSION['point'];
                     <div class="answer">
                     <p><?php echo $food['name'].'<br>'; ?></p>
                     <img src ="<?php echo $food['image'].'<br>';?>" >
-                    <p>答え <?php echo $food['carbo'];?>カーボ</p>
+                    <p>答え　　<span><?php echo $food['carbo'];?></span>　カーボ</p>
                     </div>
                     
                 <?php endforeach; ?>

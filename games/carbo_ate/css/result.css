@@ -1,18 +1,30 @@
 .answers{
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
 }
 img{
     width: 140px;
     height: 140px;
 }
+.points h2{
+    width: 200px;
+}
 .answer{
     width: 180px;
-    height:300px;
+    height:260px;
     background-color: white;
     padding: 10px 20px;
     border-radius: 10px;
-    border: 1px solid ghostwhite;
+    border: 2px solid  rgb(250, 217, 28);
+    text-align: center;
+    white-space: nowrap;
+}
+.answer p:last-child{
+    padding-top: 20px;
+}
+.answer p:last-child span{
+    font-weight: bolder;
 }
 .ans_imges{
     display: flex;
