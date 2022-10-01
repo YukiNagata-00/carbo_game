@@ -48,6 +48,7 @@ if(isset($foods)){
     $_SESSION['q_index'] = $q_index;
     $_SESSION['result'] = $result;
     $_SESSION['point'] = $point;
+    $_SESSION['type'] = $type;
     header('Location: ate_playing.php');
 }
 ?>

@@ -20,19 +20,13 @@ if(empty($_SESSION['result'])){
     $q_index =  $_SESSION['q_index'];
     $result = $_SESSION['result'];
     $point = $_SESSION['point'];
-    
+    $type = $_SESSION['type'];
 }
-
-
-// var_dump(count($result));
-// var_dump($q_index);
-// var_dump($point);
 
 $q_name = $foods[$q_index]['name'];
 $q_carbo = $foods[$q_index]['carbo'];
 $q_image = $foods[$q_index]['image'];
 
-var_dump($q_carbo);
 
 function getDummyAns1($q_carbo){
     $dummy1 = round(round(mt_rand() / mt_getrandmax(), 2) * $q_carbo, 1);
@@ -57,50 +51,47 @@ if($type === 'fund'){
     $dummy_ans2 = getDummyAns2($q_carbo, $dummy_ans1);
     $choices = [$q_carbo,  $dummy_ans1,  $dummy_ans2];
     shuffle($choices);
-    print_r($choices);
 
-}
-
-
-//入力値のチェック_____________________________________________________________
-$error = [];
-if(isset($_POST['input_btn'])){
-    $input_ans = (double)htmlspecialchars($_POST['input_ans']);
-    // var_dump($input_ans);
-    // var_dump(strlen($input_ans));
-
-    if(!$input_ans){
-        $error[] = '答えを入力してください。';
-    }else if(strlen($input_ans) > 4 ){
-        $error[] = '正しい値を入力してください。';
-    }
-
-    if(empty($error)){
-        $_SESSION['input_ans'] = $input_ans;
-        $_SESSION['foods'] = $foods;
-        $_SESSION['result'] = $result;
+    if(isset($_POST[('choice_submit')])){
+        // echo 'ccc';
+        $selectedChoice = filter_input(INPUT_POST, 'choice');
+        var_dump($selectedChoice) ;
         $_SESSION['q_index'] = $q_index;
-        $_SESSION['point'] = $point;
+        $_SESSION['result'] = $result;
+        $_SESSION['selectedChoice'] = $selectedChoice ;
         $_SESSION['type'] = $type;
         header('Location: check.php');
         exit();
     }
 
+}else if($type === 'adv'){
 
+    //入力値のチェック_____________________________________________________________
+    $error = [];
+    if(isset($_POST['input_btn'])){
+        $input_ans = (double)htmlspecialchars($_POST['input_ans']);
+
+        if(!$input_ans){
+            $error[] = '答えを入力してください。';
+        }else if(strlen($input_ans) > 4 ){
+            $error[] = '正しい値を入力してください。';
+        }
+
+        if(empty($error)){
+            $_SESSION['input_ans'] = $input_ans;
+            $_SESSION['foods'] = $foods;
+            $_SESSION['result'] = $result;
+            $_SESSION['q_index'] = $q_index;
+            $_SESSION['point'] = $point;
+            $_SESSION['type'] = $type;
+            header('Location: check.php');
+            exit();
+        }
+    }
 }
 //-------------------------------------------------------------------------
 
-if(isset($_POST[('choice_submit')])){
-    // echo 'ccc';
-    $selectedChoice = filter_input(INPUT_POST, 'choice');
-    var_dump($selectedChoice) ;
-    $_SESSION['q_index'] = $q_index;
-    $_SESSION['result'] = $result;
-    $_SESSION['selectedChoice'] = $selectedChoice ;
-    $_SESSION['type'] = $type;
-    header('Location: check.php');
-    exit();
-}
+
 
 //[次の問題へ]ボタンを押したら
 if(isset($_POST['next_btn'])){
@@ -181,7 +172,7 @@ if(isset($_POST['next_btn'])){
                     <form action="" method="POST" >
                         <div class="choice">
                             <input type="hidden" name = "choice" value="<?= $choice ?>"> <?= $choice ?>
-                </div>
+                        </div>
                         <input type="hidden" value="<?= $choice ?>"  name = "choice_submit" >
                     </form>
                 <?php  endforeach; ?>

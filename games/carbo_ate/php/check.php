@@ -14,65 +14,60 @@ if(isset($_SESSION['input_ans']) || isset($_SESSION['selectedChoice']) ){
     var_dump("failed");
 }
 
-// var_dump($input_ans);
-var_dump($type);
-var_dump((double)$selectedChoice);
-// var_dump($q_index);
-// var_dump($result);
-// var_dump($point);
-
-
 
 $ans_carbo = (double)$foods[$q_index]['carbo'];
 
 if($type === 'fund'){
-    $point += checkAnsOfFund((double)$selectedChoice, $ans_carbo);
-    var_dump($point);
+    checkAnsOfFund((double)$selectedChoice, $ans_carbo, $point, $result);
 }else{
-    $point += checkAnsOfAdv($input_ans, $ans_carbo);
+    checkAnsOfAdv($input_ans, $ans_carbo, $point, $result);
 }
 
-var_dump($ans_carbo);
+// var_dump($ans_carbo);
 
-function checkAnsOfFund($input, $ans_carbo){
-    if($input === $ans_carbo){
+function setResultArray($val){
+    $result[] = $val;
+    return $result;
+}
+
+function checkAnsOfFund($input, $ans_carbo, &$point, &$result){
+    if($input == $ans_carbo){
         $result[] = "correct";
-        return 20;
+        
+        $point += 20;
     }else{
         $result[] = "miss";
         return 0;
     }
 }
 
-function checkAnsOfAdv($input, $ans_carbo){
+function checkAnsOfAdv($input, $ans_carbo, &$point, &$result){
     if($input == $ans_carbo){
-        var_dump("cor");
         $result[] = "correct";
-        return 10;
+        $point += 10;
     }else{
-        var_dump("miss");
         $result[] = "miss";
         
         $ans_diff = abs($ans_carbo - $input);
         if($ans_diff <= 1){
-            return 5;
+            $point += 5;
         }else if($ans_diff > 1 && $ans_diff <= 2){
-            return 2;
+            $point += 2;
         }else if($ans_diff > 2 && $ans_diff <= 3){
-            return 3;
+            $point += 3;
         } 
         
     }
 
 }
-print_r($result);
-var_dump($q_index);
+var_dump($result);
 
 if(!empty($result)){
     $_SESSION['foods'] = $foods;
     $_SESSION['q_index'] = $q_index;
     $_SESSION['result'] = $result;
     $_SESSION['point'] = $point;
+    $_SESSION['type'] = $type;
     header('Location: ate_playing.php');
     exit();
 }

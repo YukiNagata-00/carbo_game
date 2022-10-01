@@ -101,8 +101,20 @@ main{
     border: none;
     cursor: pointer;
 }
+.choices_wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    height: 80px;
+}
 
 .choice{
+    border: 2px solid  rgb(250, 217, 28);
     background-color: white;
     cursor: pointer;
+    height: 100%;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+    padding:40px 0 0 0;
+    font-size: 30px;
 }
