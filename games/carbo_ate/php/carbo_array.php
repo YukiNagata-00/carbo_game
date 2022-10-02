@@ -14,20 +14,20 @@ if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
     exit();
 }
 
-$db = dbconnect();
+// $db = dbconnect();
 
-function getFood($db){
-    $records = $db->query("SELECT name, carbo, image FROM foods ORDER BY RAND() LIMIT 5");
-    if($records){
-    while($record = $records->fetch_assoc()){
-        $foods[]= $record;
-    }
-    return $foods;
-}
-}
+// function getFood($db){
+//     $records = $db->query("SELECT name, carbo, image FROM foods ORDER BY RAND() LIMIT 5");
+//     if($records){
+//     while($record = $records->fetch_assoc()){
+//         $foods[]= $record;
+//     }
+//     return $foods;
+// }
+// }
 
 
-$foods = getFood($db);
+// $foods = getFood($db);
 
 
 
@@ -41,6 +41,7 @@ $result = [];
 
 //ポイント
 $point =0;
+
 if(isset($foods)){
     $_SESSION['foods'] = $foods;
     $_SESSION['user_id'] = $user_id;

@@ -1,73 +1,20 @@
 <?php
 session_start();
 require('../../../common.php');
+require_once('../../../config.php');
 
 
-
-if(empty($_SESSION['result'])){
-    if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSION['foods'])){
-        $user_id = $_SESSION['user_id'];
-        $user_name = $_SESSION['user_name'];
-        $foods =  $_SESSION['foods'];
-        $q_index =  $_SESSION['q_index'];
-        $result = $_SESSION['result'];
-        $point = $_SESSION['point'];
-        $type = $_SESSION['type'];
-    }else{
-        // var_dump("failed");
-        // header('Location: ../../login_v.php');
-        // exit();
-    }
-}else{
-    $foods =  $_SESSION['foods'];
-    $q_index =  $_SESSION['q_index'];
-    $result = $_SESSION['result'];
-    $point = $_SESSION['point'];
-    $type = $_SESSION['type'];
-}
-
-$q_name = $foods[$q_index]['name'];
-$q_carbo = $foods[$q_index]['carbo'];
-$q_image = $foods[$q_index]['image'];
+$game = unserialize($_SESSION['instance']);
+$q_name = $game->foods[$game->q_index]['name'];
+$q_carbo = $game->foods[$game->q_index]['carbo'];
+$q_image = $game->foods[$game->q_index]['image'];
 
 
-function getDummyAns1($q_carbo){
-    $dummy1 = round(round(mt_rand() / mt_getrandmax(), 2) * $q_carbo, 1);
-    if($dummy1 <= 0 ||  abs($dummy1 - $q_carbo) <= 1){
-        return  getDummyAns1($q_carbo);
-    }else{
-        return $dummy1;
-    }
-}
-function getDummyAns2($q_carbo, $dummy_ans1){
-    $dummy2 = round(round(mt_rand() / mt_getrandmax(), 2) * $q_carbo *rand(1,9) + $q_carbo / rand(1, 1.5), 1);
-    if($dummy2 <= 0 ||  abs($dummy2 - $q_carbo) <= 1){
-        return getDummyAns2($q_carbo, $dummy_ans1);
-    }else{
-        return $dummy2;
-    }
-}
+if($game->type === 'fund'){
 
+    $choices = $game->playingFund($q_carbo);
 
-if($type === 'fund'){
-    $dummy_ans1 = getDummyAns1($q_carbo);
-    $dummy_ans2 = getDummyAns2($q_carbo, $dummy_ans1);
-    $choices = [$q_carbo,  $dummy_ans1,  $dummy_ans2];
-    shuffle($choices);
-
-    if(isset($_POST[('choice_submit')])){
-        // echo 'ccc';
-        $selectedChoice = filter_input(INPUT_POST, 'choice');
-        var_dump($selectedChoice) ;
-        $_SESSION['q_index'] = $q_index;
-        $_SESSION['result'] = $result;
-        $_SESSION['selectedChoice'] = $selectedChoice ;
-        $_SESSION['type'] = $type;
-        header('Location: check.php');
-        exit();
-    }
-
-}else if($type === 'adv'){
+}else if($game->type === 'adv'){
 
     //入力値のチェック_____________________________________________________________
     $error = [];
@@ -94,7 +41,9 @@ if($type === 'fund'){
 }
 //-------------------------------------------------------------------------
 
-
+if(isset($_POST[('choice_submit')])){
+    $game->checkAnsOfFund($q_carbo);
+}
 
 //[次の問題へ]ボタンを押したら
 if(isset($_POST['next_btn'])){
@@ -125,7 +74,7 @@ if(isset($_POST['next_btn'])){
 
     <div class="top">
         <a href="carbo_ate.php">ゲーム画面TOPへ</a>
-        <h1>第 <?= $q_index + 1 ?> 問</h1>
+        <h1>第 <?= $game->q_index + 1 ?> 問</h1>
     </div>
     <div class="img-wrapper">
         <div class="content">
@@ -136,9 +85,9 @@ if(isset($_POST['next_btn'])){
     </div>
     
     <div class="ans_wrapper ">
-    <?php if($q_index + 1 == count($result)) :?>
+    <?php if($game->q_index + 1 == count($game->result)) :?>
         <div class="ans_content ">
-            <?php if($result[$q_index] == "correct"): ?>
+            <?php if($game->result[$game->q_index] == "correct"): ?>
                     <img src="https://4.bp.blogspot.com/-CUR5NlGuXkU/UsZuCrI78dI/AAAAAAAAc20/mMqQPb9bBI0/s800/mark_maru.png" alt="マル">
                 <?php  else :?>
                     <img src="https://1.bp.blogspot.com/-eJGNGE4u8LA/UsZuCAMuehI/AAAAAAAAc2c/QQ5eBSC2Ey0/s800/mark_batsu.png" alt="バツ">
@@ -149,14 +98,14 @@ if(isset($_POST['next_btn'])){
     </div>
     
     <div class="next_form_area ">
-        <?php if($q_index + 1 == count($result)) :?>
+        <?php if($game->q_index + 1 == count($game->result)) :?>
             <form action="" method="POST" class = "next_form ">
                 <input type="submit" name = "next_btn" value="次の問題へ">
             </form>
         <?php endif; ?>
     </div>
     <div class="form_wrapper">
-        <?php if($type === 'adv') :?>
+        <?php if($game->type === 'adv') :?>
             <?php if($q_index  == count($result)) :?>
                 <?php if(!empty($error)): ?> 
                     <?php foreach ($error as $val): ?>
