@@ -1,6 +1,9 @@
 <?php
 session_start();
 require('../../../common.php');
+
+
+
 if(empty($_SESSION['result'])){
     if(isset($_SESSION['user_id']) && isset($_SESSION['user_name']) && isset($_SESSION['foods'])){
         $user_id = $_SESSION['user_id'];

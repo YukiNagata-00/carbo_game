@@ -3,6 +3,9 @@ session_start();
 require('../../../common.php');
 include('../../../parts/_head.php');
 
+require('Quiz.php');
+
+
 if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
     $user_id = $_SESSION['user_id'];
     $user_name = $_SESSION['user_name'];
@@ -11,22 +14,14 @@ if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
     // header('Location: ../../login_v.php');
     exit();
 }
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $_SESSION['user_id'] = $user_id;
-    $_SESSION['user_name'] = $user_name;
 
-    if($_POST['fund']){
-        $_SESSION['type'] = 'fund';
-    }else if($_POST['adv']){
-        $_SESSION['type'] = 'adv';
-    }
 
-    header('Location: carbo_array.php');
-    exit();
-}
+$game = new Quiz();
+$game->divideType();
+
 ?>
 
-    <link rel="stylesheet" href="../css/carbo-ate.css">
+<link rel="stylesheet" href="../css/carbo-ate.css">
 </head>
 <body class="drawer drawer--left">
 <?php
