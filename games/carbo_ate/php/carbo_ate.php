@@ -2,8 +2,8 @@
 session_start();
 require('../../../common.php');
 include('../../../parts/_head.php');
+require_once('../../../config.php');
 
-require('Quiz.php');
 
 
 if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
@@ -11,13 +11,18 @@ if(isset($_SESSION['user_name']) && isset($_SESSION['user_name'])){
     $user_name = $_SESSION['user_name'];
 }else{
     var_dump("failed");
-    // header('Location: ../../login_v.php');
+    header('Location: ../../login_v.php');
     exit();
 }
 
+$db = dbconnect();
 
-$game = new Quiz();
-$game->divideType();
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $game = new Quiz();
+    $game->divideType();
+    $game->getFood($db);
+    $_SESSION['instance'] = serialize($game);
+}
 
 ?>
 
