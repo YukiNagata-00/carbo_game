@@ -20,10 +20,6 @@ class Quiz
     }
 
     public function divideType(){
-        // if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            // $_SESSION['user_id'] = $user_id;
-            // $_SESSION['user_name'] = $user_name;
-        
             if($_POST['fund']){
                 $this->type = 'fund';
                 $_SESSION['type'] = 'fund';
@@ -31,10 +27,8 @@ class Quiz
                 $this->type = 'adv';
                 $_SESSION['type'] = 'adv';
             }
-            // header('Location: carbo_array.php');
             header('Location: ate_playing.php');
-        //     exit();
-        // }
+            exit();
     }
 
     public function  getFood($db){
@@ -76,15 +70,6 @@ class Quiz
 
     public function checkAnsOfFund($ans_carbo){
         $selectedChoice = filter_input(INPUT_POST, 'choice');
-        // $_SESSION['q_index'] = $this->q_index;
-        // $_SESSION['result'] =  $this->result;
-        // $_SESSION['selectedChoice'] = $selectedChoice ;
-        // $_SESSION['type'] = $this->type;
-        // header('Location: check.php');
-        // exit();
-
-
-        // function checkAnsOfFund($input, $ans_carbo, &$point, &$result){
             if($selectedChoice == $ans_carbo){
                 $this->result[] = "correct";
                 
@@ -92,7 +77,6 @@ class Quiz
             }else{
                 $this->result[] = "miss";
             }
-        // }
     }
 
 }
