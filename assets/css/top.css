@@ -1,0 +1,10 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.main{
+    background: linear-gradient(-90deg,#ffc63580,#F9990A);
+    min-height: 100vh;
+    display: flex;
+
+}
