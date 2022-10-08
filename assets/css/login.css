@@ -1,0 +1,89 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+.main{
+    background: linear-gradient(-90deg,#ffc63580,#F9990A);
+    min-height: 100vh;
+    display: flex;
+
+}
+.title{
+    font-family: 'Acme', sans-serif;
+    width: 50%;
+    /* height: 100%; */
+    height:100vh;
+}
+.title_one{
+    height: calc(100% / 3);
+    font-size: 150px;
+    padding-left: 30px;
+}
+
+.login{
+    font-family: "M PLUS Rounded 1c"; 
+    width: 50%;
+}
+.login_wrapper{
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    height: 70%;
+    width: 70%;
+    margin-top: 70px;
+    text-align: center;
+}
+.login_wrapper h2{
+    font-family: 'Acme', sans-serif;
+    font-family: 'Acme', sans-serif;
+    padding: 10px;
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+
+form{
+    /* background-color: rebeccapurple; */
+    height: 60%;
+    margin-top: 40px;
+}
+
+.email{
+    /* background-color: pink; */
+    margin: 10px;
+}
+input[name="email"], input[name="password"]{
+    width: 60%;
+    height: 30px;
+    padding: 5px;
+    background-color: #8080804f;
+    border-radius: 8px;
+    border: solid 1px black;
+}
+.password{
+    /* background-color: orangered; */
+    margin: 40px 10px
+}
+/* .btns{
+    display:flex;
+    flex-flow: column;
+} */
+
+input[name="login"]{
+    background-color: #F9990A;
+    border-radius: 8px;
+    border: solid 1px black;
+    width: 150px;
+    height: 40px;
+    /* border: none; */
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+input[name="test_login"]{
+    width: 70%;
+    text-align: center;
+}

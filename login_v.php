@@ -83,7 +83,7 @@ if($_SERVER['REQUEST_METHOD']  === 'POST' && isset($_POST['login']))  {
                 
                 <form action="" method="POST" >
                     <div class = "email-area">
-                        <label for = "email">メールアドレス</label>
+                        <label for = "email">メールアドレス</label>     
                         <input type = "text" name = "email" value = "<?php echo  htmlspecialchars($form['email']); ?>">
                         <div class= "error-area">
                         <p> </p>

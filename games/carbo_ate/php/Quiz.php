@@ -3,7 +3,7 @@
 class Quiz
 {
     //foods配列のインデックス
-    public $q_index = 0;
+    public $q_index =0;
 
     //○か×か格納する配列
     public $result = [];
@@ -27,6 +27,7 @@ class Quiz
                 $this->type = 'adv';
                 $_SESSION['type'] = 'adv';
             }
+            $_SESSION['reload'] = false;
             header('Location: ate_playing.php');
             exit();
     }
@@ -77,6 +78,24 @@ class Quiz
             }else{
                 $this->result[] = "miss";
             }
+    }
+
+    public function toNext(){
+        if($this->q_index < 4){
+            $this->q_index++;
+            // $_SESSION['foods'] = $foods;
+            // $_SESSION['result'] = $result;
+            // $_SESSION[$this->q_index] = $q_index;
+            // $_SESSION['point'] = $point;
+            // header('Location: ate_playing.php');
+            // exit();
+        }else{
+            // $_SESSION['foods'] = $foods;
+            // $_SESSION['result'] = $result;
+            // $_SESSION['point'] = $point;
+            // header('Location: result.php');
+            // exit();
+        }
     }
 
 }

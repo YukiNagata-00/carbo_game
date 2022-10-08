@@ -4,15 +4,18 @@ require('../../../common.php');
 require_once('../../../config.php');
 
 
+
+
 $game = unserialize($_SESSION['instance']);
 $q_name = $game->foods[$game->q_index]['name'];
 $q_carbo = $game->foods[$game->q_index]['carbo'];
 $q_image = $game->foods[$game->q_index]['image'];
 
-
+var_dump($game->q_index);
 if($game->type === 'fund'){
 
     $choices = $game->playingFund($q_carbo);
+    
 
 }else if($game->type === 'adv'){
 
@@ -47,15 +50,16 @@ if(isset($_POST[('choice_submit')])){
 
 //[次の問題へ]ボタンを押したら
 if(isset($_POST['next_btn'])){
-    $_SESSION['foods'] = $foods;
-    $_SESSION['result'] = $result;
-    $_SESSION['q_index'] = $q_index;
-    $_SESSION['point'] = $point;
-    header('Location: to_next.php');
-    exit();
+    $game->toNext();
+    // $_SESSION['foods'] = $foods;
+    // $_SESSION['result'] = $result;
+    // $_SESSION['q_index'] = $q_index;
+    // $_SESSION['point'] = $point;
+    // header('Location: to_next.php');
+    // exit();
 }
 
-
+var_dump($game);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,7 +125,7 @@ if(isset($_POST['next_btn'])){
         <?php else :?>
             <div class="choices_wrapper">
                 <?php  foreach($choices as $choice) :?>
-                    <form action="" method="POST" >
+                    <form action="?action=choice" method="POST" >
                         <div class="choice">
                             <input type="hidden" name = "choice" value="<?= $choice ?>"> <?= $choice ?>
                         </div>
