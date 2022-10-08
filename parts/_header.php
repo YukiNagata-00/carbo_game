@@ -1,10 +1,11 @@
 <?php
-$top_url = "/carbo_project/top/php/index.php";
-
+// $top_url = "/carbo_project/top/php/index.php";
+$top_url = "/carbo_project/views/top.php";
 
 ?>
 <!-- ハンバーガーボタン -->
 <button type="button" class="drawer-toggle drawer-hamburger">
+    <img src="" alt="">
     <span class="sr-only">toggle navigation</span>
     <span class="drawer-hamburger-icon"></span>
 </button>

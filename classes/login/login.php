@@ -1,6 +1,0 @@
-<?php
-
-$form = [
-    'email' => '',
-    'password' => '',
-];

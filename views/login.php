@@ -2,7 +2,7 @@
 
 session_start();
 require('../common.php');
-require('../classes/login/login.php');
+require('../controller/login/login.php');
 
 
 
@@ -16,6 +16,7 @@ require('../classes/login/login.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../common.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
@@ -62,7 +63,7 @@ require('../classes/login/login.php');
                         <input type = "submit" value="ログインせずに使う" class = "btn sub_btn" name = "test_login">
                     </div>
                 </form>
-                <a href = "./signup/php/signup_v.php">新規登録はこちら</a>
+                <a href = "../controller/signup/signup.php">新規登録はこちら</a>
                 
             </div>
         </div>
