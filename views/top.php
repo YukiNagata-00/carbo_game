@@ -2,7 +2,7 @@
 session_start();
 
 require('../common.php');
-
+require('../controller/top/top.php');
 
 
 ?>
