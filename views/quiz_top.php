@@ -22,7 +22,9 @@ require('../controller/quiz/index.php');
     ?>
     <header role="banner"></header>
     
-    <div class="main"></div>
+    <div class="main">
+        
+    </div>
     <script type="text/javascript" src = "../parts/_drawer.js"></script>
 </body>
 </html>
