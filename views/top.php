@@ -35,7 +35,7 @@ require('../controller/top/top.php');
     <div class="main">
         <div class="title">MENU</div>
         <div class="items">
-            <a href=""  class="item">
+            <a href="../views/quiz_top.php"  class="item">
                 <img src="" alt="">
                 <p>QUIZ</p>
             </a>
