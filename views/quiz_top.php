@@ -1,6 +1,8 @@
 <?php
+session_start();
 require('../common.php');
 require('../controller/quiz/index.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +25,13 @@ require('../controller/quiz/index.php');
     <header role="banner"></header>
     
     <div class="main">
-        
+        <div class="title">QUIZ  GAME</div>
+        <div class="contain">
+        <form action="" method="POST">
+            <input type="submit" name="easy_start_btn" value="初級編">
+            <input type="submit" name="adv_start_btn" value="発展編">
+        </form>
+        </div>
     </div>
     <script type="text/javascript" src = "../parts/_drawer.js"></script>
 </body>
