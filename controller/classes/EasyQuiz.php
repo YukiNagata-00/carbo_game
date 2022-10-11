@@ -4,7 +4,8 @@ class EasyQuiz{
 
     public $foods=[];
     public $choices = [];
-
+    public $point =[];
+    public $result =[];
     function __construct($db)
     {
         $this->_setup($db);
@@ -19,6 +20,13 @@ class EasyQuiz{
         if (!isset($_SESSION['choices'])) {
             $_SESSION['choices'] =  $this->choices;
         }
+        if (!isset($_SESSION['point'])) {
+            $_SESSION['point'] =  0;
+        }
+        if (!isset($_SESSION['result'])) {
+            $_SESSION['result'] =  $this->result;
+        }
+        
     }
 
     public function _setup($db){
@@ -34,7 +42,7 @@ class EasyQuiz{
     public function _setChoices(){
         for($i =0; $i <count($this->foods); $i++){
             $this->choices[$i] = [$this->foods[$i]['carbo'], $this->getDummyAns1($this->foods[$i]['carbo']), $this->getDummyAns2($this->foods[$i]['carbo'], $this->getDummyAns1($this->foods[$i]['carbo'])) ];
-            shuffle($this->choices[$i]);
+            // shuffle($this->choices[$i]);
         }
         
     }

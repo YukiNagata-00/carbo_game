@@ -9,7 +9,12 @@
 }
 .answers{
     display: flex;
+    justify-content: space-around;
 }
-.answer{
+button{
     background-color: white;
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    border: 1px solid black;
 }

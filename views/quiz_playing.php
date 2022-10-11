@@ -3,10 +3,6 @@ session_start();
 require('../common.php');
 require('../controller/quiz/quiz_playing.php');
 
-var_dump($_SESSION['foods']);
-$index =  $_SESSION['current_num'];
-var_dump( $index);
-$choices = $_SESSION['choices'];
 ?>
 
 
@@ -28,9 +24,14 @@ $choices = $_SESSION['choices'];
 
         </div>
         <div class="answers">
-            <div class="answer"><?= $choices[$index][0] ?></div>
-            <div class="answer"><?= $choices[$index][1] ?></div>
-            <div class="answer"><?= $choices[$index][2] ?></div>
+            <?php foreach($choices[$index] as $value): ?>
+                <form action="" method="get">
+                    <!-- <div class="answer"><?= $value?></div>
+                    <input type="hidden" name="choice" value="<?= $value?>"> -->
+                    <button type="submit" value="<?= $value?>" name="selected_choice"><?= $value?></button>
+                </form>
+
+            <?php  endforeach; ?>
         </div>
     </div>
 </body>
