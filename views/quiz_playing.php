@@ -25,14 +25,18 @@ require('../controller/quiz/quiz_playing.php');
         </div>
         <div class="answers">
             <?php foreach($choices[$index] as $value): ?>
-                <form action="" method="get">
+                <form action="" method="post">
                     <!-- <div class="answer"><?= $value?></div>
                     <input type="hidden" name="choice" value="<?= $value?>"> -->
-                    <button type="submit" value="<?= $value?>" name="selected_choice"><?= $value?></button>
+                    <input type="submit" value="<?= $value?>" name="selected_choice" class="choices"><?= $value?></input>
                 </form>
 
             <?php  endforeach; ?>
+            <form action="" method="POST" class = "next_form ">
+                <input type="submit" name = "next_btn" value="次の問題へ">
+            </form>
         </div>
     </div>
+    <script type="text/javascript" src = "../controller/quiz/quiz.js"></script>
 </body>
 </html>
