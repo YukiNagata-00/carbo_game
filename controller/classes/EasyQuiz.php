@@ -6,26 +6,27 @@ class EasyQuiz{
     public $choices = [];
     public $point =[];
     public $result =[];
+    public $index = 0;
     function __construct($db)
     {
         $this->_setup($db);
         $this->_setChoices();
 
-        if (!isset($_SESSION['current_num'])) {
-            $_SESSION['current_num'] = 0;
-        }
-        if (!isset($_SESSION['foods'])) {
+        // if (!isset($_SESSION['index'])) {
+            $_SESSION['index'] = 0;
+        // }
+        // if (!isset($_SESSION['foods'])) {
             $_SESSION['foods'] =  $this->foods;
-        }
-        if (!isset($_SESSION['choices'])) {
+        // }
+        // if (!isset($_SESSION['choices'])) {
             $_SESSION['choices'] =  $this->choices;
-        }
-        if (!isset($_SESSION['point'])) {
+        // }
+        // if (!isset($_SESSION['point'])) {
             $_SESSION['point'] =  0;
-        }
-        if (!isset($_SESSION['result'])) {
+        // }
+        // if (!isset($_SESSION['result'])) {
             $_SESSION['result'] =  $this->result;
-        }
+        // }
         
     }
 
