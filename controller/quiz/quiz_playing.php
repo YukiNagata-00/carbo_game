@@ -40,14 +40,7 @@ if(isset($_POST['selected_choice'])){
         $result[]= "ok";
         $_SESSION['result'] = $result;
         $_SESSION['point'] = $point;
-?>
-<script>
-    let tt = function trst(){
-        console.log("test");
-    }
-</script>
-<?php
-var_dump($point);
+        
     }else{
         echo "wrong";
         $result[]= "ng";
@@ -55,5 +48,6 @@ var_dump($point);
         $_SESSION['result'] = $result;
         $_SESSION['point'] = $point;
     }
+    unset($_POST['selected_choice']);
 }
 ?>
