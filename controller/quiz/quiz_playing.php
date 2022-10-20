@@ -9,16 +9,11 @@ var_dump( $point);
 var_dump($result);
 var_dump($index);
 $choices = $_SESSION['choices'];
+$_SESSION['afterClicked'] = false;
 
 
-// var_dump($choices);
-// if(isset($_POST['next_form'])){
-//     echo "ddd";
-//     $index ++;
-//     header('Location: quiz_playing.php');
-//     exit();
-// }
 if(isset($_POST['next_btn'])){
+    
     if($index < 4){
         $index ++;
         $_SESSION['foods'] = $foods;
@@ -34,22 +29,24 @@ if(isset($_POST['next_btn'])){
         exit();
     }
 
-    // $game->toNext();
-    // $_SESSION['foods'] = $foods;
-    // $_SESSION['result'] = $result;
-    
-    // $_SESSION['point'] = $point;
 }
 var_dump($foods[$index]['carbo']);
 // var_dump($_POST['selected_choice']);
 if(isset($_POST['selected_choice'])){
-    echo $_POST['selected_choice'];
+    $_SESSION['afterClicked'] = true;
     if($foods[$index]['carbo'] ==  $_POST['selected_choice']){
         echo "reight";
         $point += 20;
         $result[]= "ok";
         $_SESSION['result'] = $result;
         $_SESSION['point'] = $point;
+?>
+<script>
+    let tt = function trst(){
+        console.log("test");
+    }
+</script>
+<?php
 var_dump($point);
     }else{
         echo "wrong";
@@ -60,31 +57,3 @@ var_dump($point);
     }
 }
 ?>
-
-<script>
-
-// const buttonOpen = document.$_POSTElementById('modalOpen');
-// const modal = document.getElementById('easyModal');
-// const buttonClose = document.getElementsByClassName('modalClose')[0];
-
-// // ボタンがクリックされた時
-// buttonOpen.addEventListener('click', modalOpen);
-// function modalOpen() {
-//   modal.style.display = 'block';
-// }
-
-// // バツ印がクリックされた時
-// buttonClose.addEventListener('click', modalClose);
-// function modalClose() {
-//   modal.style.display = 'none';
-// }
-
-// // モーダルコンテンツ以外がクリックされた時
-// addEventListener('click', outsideClose);
-// function outsideClose(e) {
-//   if (e.target == modal) {
-//     modal.style.display = 'none';
-//   }
-// }
-</script>
-

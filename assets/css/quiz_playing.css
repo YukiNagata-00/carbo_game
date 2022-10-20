@@ -18,4 +18,10 @@ button{
     cursor: pointer;
     border: 1px solid black;
 }
+.choices.green{
+    background-color: rgb(60, 248, 185);
+}
+.choices.red{
+    background-color: rgb(255, 99, 99);
+}
 

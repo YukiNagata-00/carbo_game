@@ -1,14 +1,14 @@
-let choices = document.querySelectorAll('.choices');
-    console.log(choices);
-choices.forEach(element => 
+// let choices = document.querySelectorAll('.choices');
+//     console.log(choices);
+// choices.forEach(element => 
 
-    element.addEventListener('click', (e)=>{
-        // e.preventDefault();
-        console.log(element.getAttribute('value'));
-    }
+//     element.addEventListener('click', (e)=>{
+//         // e.preventDefault();
+//         console.log(element.getAttribute('value'));
+//     }
 
     // console.log(element.getAttribute('value'));
-    ));
+    // ));
 // choices.forEach((choice) =>{
     
 //     choice.addEventListener('click', ()=>{
