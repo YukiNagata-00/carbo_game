@@ -43,7 +43,7 @@ require('../controller/top/top.php');
                 <img src="" alt="">
                 <p>GAME</p>
             </a>
-            <a href="../controller/flashcard/cardlist.php" class="item">
+            <a href="cardlist.php" class="item">
                 <img src="" alt="">
                 <p>FLASH CARD</p>
             </a>
